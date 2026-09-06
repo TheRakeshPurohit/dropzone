@@ -1,3 +1,11 @@
+## 6.1.1
+
+### Patch Changes
+
+- [`d3a9221`](https://github.com/dropzone/dropzone/commit/d3a922199d56b73be1ae71f1834c24066aba40fd) Thanks [@enyo](https://github.com/enyo)! - Reword the default `dictMaxFilesExceeded` message from "You can not upload any more files." to "You cannot upload any more files."
+
+- [`4e13aab`](https://github.com/dropzone/dropzone/commit/4e13aabb7df94c8a24a4d232b82b2ad12ed8dd47) Thanks [@enyo](https://github.com/enyo)! - Vendor `just-extend` into the source and drop the dependency. Dropzone now installs with no dependencies at all; the option merging behaviour is unchanged.
+
 ## 6.1.0
 
 ### Minor Changes
