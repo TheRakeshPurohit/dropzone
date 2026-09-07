@@ -25,9 +25,9 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-      # Filtered to the package: playwright is a devDependency of
-      # packages/dropzone, so its binary is not on the workspace root's path.
-      - run: pnpm --filter dropzone exec playwright install --with-deps chromium
+      # Playwright lives at the workspace root, so one browser download
+      # serves the library's tests and, once they are wired up, the website's.
+      - run: pnpm exec playwright install --with-deps chromium
 
       - run: pnpm format:check
       - run: pnpm lint
