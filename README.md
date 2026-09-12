@@ -59,7 +59,7 @@ Use the standalone files like this:
 
 ---
 
-- [📚 Full documentation](https://docs.dropzone.dev)
+- [📚 Full documentation](https://www.dropzone.dev/docs/)
 - [⚙️ `src/options.js`](https://github.com/enyo/dropzone/blob/main/src/options.js)
   for all available options
 
