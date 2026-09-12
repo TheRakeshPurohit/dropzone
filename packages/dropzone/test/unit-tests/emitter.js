@@ -70,7 +70,7 @@ describe("Emitter", function () {
     return expect(callCount2).toBe(1);
   });
 
-  return describe(".off()", function () {
+  describe(".off()", function () {
     let callback1 = function () {};
     let callback2 = function () {};
     let callback3 = function () {};
@@ -118,6 +118,50 @@ describe("Emitter", function () {
       expect(emitter._callbacks["test3"].length).toBe(1);
       expect(emitter._callbacks["test3"][0]).toBe(callback1);
       return expect(emt).toBe(emitter);
+    });
+  });
+
+  describe("off() with nothing to remove", function () {
+    it("should be a no-op for an event that has no listeners", function () {
+      emitter.on("test", function () {});
+      let returned = emitter.off("unknown");
+
+      expect(returned).toBe(emitter);
+      expect(emitter._callbacks["test"].length).toBe(1);
+    });
+
+    it("should be a no-op before any listener was registered", function () {
+      expect(emitter.off("unknown")).toBe(emitter);
+    });
+  });
+
+  describe("makeEvent()", function () {
+    it("should build a CustomEvent carrying the detail", function () {
+      let event = emitter.makeEvent("dropzone:test", { args: [1, 2] });
+
+      expect(event).toBeInstanceOf(CustomEvent);
+      expect(event.type).toBe("dropzone:test");
+      expect(event.bubbles).toBe(true);
+      expect(event.cancelable).toBe(true);
+      expect(event.detail).toEqual({ args: [1, 2] });
+    });
+
+    // The branch behind this exists for IE 11, which cannot be reached from a
+    // modern browser without taking the constructor away. It is on the 7.0
+    // list for deletion; until then this at least proves it still works.
+    it("should fall back to initCustomEvent when the constructor is missing", function () {
+      let CustomEventConstructor = window.CustomEvent;
+      window.CustomEvent = undefined;
+
+      try {
+        let event = emitter.makeEvent("dropzone:test", { args: [3] });
+
+        expect(event.type).toBe("dropzone:test");
+        expect(event.bubbles).toBe(true);
+        expect(event.detail).toEqual({ args: [3] });
+      } finally {
+        window.CustomEvent = CustomEventConstructor;
+      }
     });
   });
 });
