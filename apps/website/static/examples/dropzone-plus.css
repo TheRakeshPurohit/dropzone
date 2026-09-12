@@ -24,7 +24,7 @@ body {
   margin: 3rem 0;
   font-weight: bold;
 }
-button[type='submit'] {
+button[type="submit"] {
   width: 100%;
 }
 main .success {

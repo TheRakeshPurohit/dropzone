@@ -1,8 +1,13 @@
 <script lang="ts">
-  export let subtitle: string | null = null
+  import type { Snippet } from 'svelte'
+
+  let {
+    subtitle = null,
+    children,
+  }: { subtitle?: string | null; children: Snippet } = $props()
 </script>
 
-<h1><slot /></h1>
+<h1>{@render children()}</h1>
 
 {#if subtitle}
   <h2>{subtitle}</h2>

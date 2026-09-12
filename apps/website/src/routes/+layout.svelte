@@ -3,36 +3,28 @@
   import '../style/fonts.css'
   import '../style/app.css'
 
-  import { page } from '$app/state'
   import Footer from '#lib/Footer.svelte'
   import Header from '#lib/Header/index.svelte'
   import '@fontsource/heebo/400.css'
   import '@fontsource/heebo/700.css'
-  import { onMount } from 'svelte'
   import { env } from '#lib/env'
+  import type { Snippet } from 'svelte'
 
-  let section: string
-  let headerImage: string
-  $: {
-    section = page.url.pathname.split('/')[1]
+  let { children }: { children: Snippet } = $props()
 
-    if (['js', 'plus'].includes(section))
-      headerImage = `url(/images/backdrops/${section}.jpg)`
-    else headerImage = `url(/images/backdrops/default.jpg)`
-  }
-
-  onMount(() => {
+  $effect(() => {
     document.body.classList.add('hydrated')
-    new Image().src = '/images/backdrops/default.jpg'
-    new Image().src = '/images/backdrops/plus.jpg'
-    new Image().src = '/images/backdrops/js.jpg'
+
+    for (const backdrop of ['default', 'plus']) {
+      new Image().src = `/images/backdrops/${backdrop}.jpg`
+    }
   })
 </script>
 
-<Header --header-backdrop-image={headerImage} />
+<Header />
 
 <main data-variant={env.variant}>
-  <slot />
+  {@render children()}
 </main>
 
 <Footer />

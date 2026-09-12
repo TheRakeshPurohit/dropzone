@@ -29,47 +29,55 @@
   <p>It's meant to look good by default, and is highly customizable.</p>
 
   <Actions>
-    <StyledLink href="https://docs.dropzone.dev/" color="white"
+    <StyledLink href="/docs/" color="white"
       >Documentation</StyledLink
     >
     <StyledLink
-      href="https://docs.dropzone.dev/getting-started/installation/stand-alone"
+      href="/docs/getting-started/installation/stand-alone"
       color="white"
       variant="text">Download</StyledLink
     >
   </Actions>
 
-  <Dropzone slot="visual" />
+  {#snippet visual()}
+    <Dropzone />
+  {/snippet}
 </Intro>
 <ContentSection backgroundColor="white">
   <MainFeatures>
     <MainFeature title="Source code on GitHub">
-      <img slot="icon" src="/images/icons/github.svg" alt="GitHub" />
+      {#snippet icon()}
+        <img src="/images/icons/github.svg" alt="GitHub" />
+      {/snippet}
       <p>
         You can get all the source code on GitHub, as well as installation
         instructions. If you encounter an issue with this library, this is the
         place to create an issue.
       </p>
-      <StyledLink slot="actions" href="https://github.com/dropzone/dropzone"
-        >GitHub</StyledLink
-      >
+      {#snippet actions()}
+        <StyledLink href="https://github.com/dropzone/dropzone">GitHub</StyledLink>
+      {/snippet}
     </MainFeature>
     <MainFeature title="Documentation">
-      <img slot="icon" src="/images/icons/gitbook.svg" alt="GitBook" />
+      {#snippet icon()}
+        <img src="/images/icons/gitbook.svg" alt="Documentation" />
+      {/snippet}
       <p>
         All the documentation about Dropzone, and the multiple ways to configure
         and customise it, can be found on GitBook.
       </p>
-      <StyledLink slot="actions" href="https://docs.dropzone.dev"
-        >Docs</StyledLink
-      >
+      {#snippet actions()}
+        <StyledLink href="/docs/">Docs</StyledLink>
+      {/snippet}
     </MainFeature>
     <MainFeature title="Questions and Support">
-      <div slot="icon">
-        <img src="/images/icons/stackoverflow.svg" alt="Stackoverflow" />
-        <span class="plus-icon-container"><PlusIcon /></span>
-        <img src="/images/icons/github.svg" alt="GitHub" />
-      </div>
+      {#snippet icon()}
+        <div>
+          <img src="/images/icons/stackoverflow.svg" alt="Stackoverflow" />
+          <span class="plus-icon-container"><PlusIcon /></span>
+          <img src="/images/icons/github.svg" alt="GitHub" />
+        </div>
+      {/snippet}
       <p>
         If you need help, there are{' '}
         <a href="https://github.com/dropzone/dropzone/discussions">
@@ -78,11 +86,11 @@
         and Stackoverflow. Use the tag dropzonejs and there'll be plenty of people
         helping you out.
       </p>
-      <StyledLink
-        slot="actions"
-        href="https://stackoverflow.com/questions/tagged/dropzone.js"
-        >Stack Overflow</StyledLink
-      >
+      {#snippet actions()}
+        <StyledLink href="https://stackoverflow.com/questions/tagged/dropzone.js">
+          Stack Overflow
+        </StyledLink>
+      {/snippet}
     </MainFeature>
   </MainFeatures>
 </ContentSection>

@@ -11,7 +11,7 @@
 
     <script src="https://unpkg.com/dropzone@5/dist/dropzone.js"></script>
     <script>
-      Dropzone.autoDiscover = false
+      Dropzone.autoDiscover = false;
     </script>
 
     <style>
@@ -78,9 +78,7 @@
 
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link" href="https://www.dropzone.dev"
-            >Back to www.dropzone.dev</a
-          >
+          <a class="nav-link" href="https://www.dropzone.dev">Back to www.dropzone.dev</a>
         </li>
       </ul>
 
@@ -88,12 +86,10 @@
 
       <blockquote>
         <p>
-          This is a bootstrap theme of Dropzone.js with a completely different
-          user experience.<br />
+          This is a bootstrap theme of Dropzone.js with a completely different user experience.<br />
           It is a demonstration of the powerful configuration possibilities of
-          <a href="//www.dropzonejs.com">Dropzone.js</a>. You can make
-          Dropzone.js look exactly how you want it to look and it's very easy to
-          do so.
+          <a href="//www.dropzonejs.com">Dropzone.js</a>. You can make Dropzone.js look exactly how
+          you want it to look and it's very easy to do so.
         </p>
       </blockquote>
 
@@ -148,12 +144,7 @@
           </div>
           <div>
             <p class="size" data-dz-size></p>
-            <div
-              class="progress active"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              aria-valuenow="0"
-            >
+            <div class="progress active" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
               <div
                 class="progress-bar progress-bar-striped progress-bar-animated progress-bar-success"
                 style="width: 0%"
@@ -182,60 +173,57 @@
 
       <script>
         // Get the template HTML and remove it from the doument
-        var previewNode = document.querySelector('#template')
-        previewNode.id = ''
-        var previewTemplate = previewNode.parentNode.innerHTML
-        previewNode.parentNode.removeChild(previewNode)
+        var previewNode = document.querySelector("#template");
+        previewNode.id = "";
+        var previewTemplate = previewNode.parentNode.innerHTML;
+        previewNode.parentNode.removeChild(previewNode);
 
         var myDropzone = new Dropzone(document.body, {
           // Make the whole body a dropzone
-          url: 'http://www.the-url-you-want-to-use.com/dropzone.php', // Set the url
+          url: "http://www.the-url-you-want-to-use.com/dropzone.php", // Set the url
           thumbnailWidth: 80,
           thumbnailHeight: 80,
           parallelUploads: 20,
           previewTemplate: previewTemplate,
           autoQueue: false, // Make sure the files aren't queued until manually added
-          previewsContainer: '#previews', // Define the container to display the previews
-          clickable: '.fileinput-button', // Define the element that should be used as click trigger to select files.
-        })
+          previewsContainer: "#previews", // Define the container to display the previews
+          clickable: ".fileinput-button", // Define the element that should be used as click trigger to select files.
+        });
 
-        myDropzone.on('addedfile', function (file) {
+        myDropzone.on("addedfile", function (file) {
           // Hookup the start button
-          file.previewElement.querySelector('.start').onclick = function () {
-            myDropzone.enqueueFile(file)
-          }
-        })
+          file.previewElement.querySelector(".start").onclick = function () {
+            myDropzone.enqueueFile(file);
+          };
+        });
 
         // Update the total progress bar
-        myDropzone.on('totaluploadprogress', function (progress) {
-          document.querySelector('#total-progress .progress-bar').style.width =
-            progress + '%'
-        })
+        myDropzone.on("totaluploadprogress", function (progress) {
+          document.querySelector("#total-progress .progress-bar").style.width = progress + "%";
+        });
 
-        myDropzone.on('sending', function (file) {
-          console.log('hi')
+        myDropzone.on("sending", function (file) {
+          console.log("hi");
           // Show the total progress bar when upload starts
-          document.querySelector('#total-progress').style.opacity = '1'
+          document.querySelector("#total-progress").style.opacity = "1";
           // And disable the start button
-          file.previewElement
-            .querySelector('.start')
-            .setAttribute('disabled', 'disabled')
-        })
+          file.previewElement.querySelector(".start").setAttribute("disabled", "disabled");
+        });
 
         // Hide the total progress bar when nothing's uploading anymore
-        myDropzone.on('queuecomplete', function (progress) {
-          document.querySelector('#total-progress').style.opacity = '0'
-        })
+        myDropzone.on("queuecomplete", function (progress) {
+          document.querySelector("#total-progress").style.opacity = "0";
+        });
 
         // Setup the buttons for all transfers
         // The "add files" button doesn't need to be setup because the config
         // `clickable` has already been specified.
-        document.querySelector('#actions .start').onclick = function () {
-          myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
-        }
-        document.querySelector('#actions .cancel').onclick = function () {
-          myDropzone.removeAllFiles(true)
-        }
+        document.querySelector("#actions .start").onclick = function () {
+          myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED));
+        };
+        document.querySelector("#actions .cancel").onclick = function () {
+          myDropzone.removeAllFiles(true);
+        };
 
         // Now fake the file upload, since GitHub does not handle file uploads
         // and returns a 404
@@ -243,19 +231,19 @@
         var minSteps = 6,
           maxSteps = 60,
           timeBetweenSteps = 100,
-          bytesPerStep = 100000
+          bytesPerStep = 100000;
 
         myDropzone.uploadFiles = function (files) {
-          var self = this
+          var self = this;
 
           for (var i = 0; i < files.length; i++) {
-            var file = files[i]
+            var file = files[i];
             totalSteps = Math.round(
-              Math.min(maxSteps, Math.max(minSteps, file.size / bytesPerStep))
-            )
-            self.emit('sending', file)
+              Math.min(maxSteps, Math.max(minSteps, file.size / bytesPerStep)),
+            );
+            self.emit("sending", file);
             for (var step = 0; step < totalSteps; step++) {
-              var duration = timeBetweenSteps * (step + 1)
+              var duration = timeBetweenSteps * (step + 1);
               setTimeout(
                 (function (file, totalSteps, step) {
                   return function () {
@@ -263,27 +251,22 @@
                       progress: (100 * (step + 1)) / totalSteps,
                       total: file.size,
                       bytesSent: ((step + 1) * file.size) / totalSteps,
-                    }
+                    };
 
-                    self.emit(
-                      'uploadprogress',
-                      file,
-                      file.upload.progress,
-                      file.upload.bytesSent
-                    )
+                    self.emit("uploadprogress", file, file.upload.progress, file.upload.bytesSent);
                     if (file.upload.progress == 100) {
-                      file.status = Dropzone.SUCCESS
-                      self.emit('success', file, 'success', null)
-                      self.emit('complete', file)
-                      self.processQueue()
+                      file.status = Dropzone.SUCCESS;
+                      self.emit("success", file, "success", null);
+                      self.emit("complete", file);
+                      self.processQueue();
                     }
-                  }
+                  };
                 })(file, totalSteps, step),
-                duration
-              )
+                duration,
+              );
             }
           }
-        }
+        };
       </script>
 
       <div class="panel panel-default">
@@ -293,10 +276,7 @@
         <div class="panel-body">
           <ul>
             <li>No jQuery dependency</li>
-            <li>
-              Extremely easy configuration so it looks exactly how you want it
-              to look
-            </li>
+            <li>Extremely easy configuration so it looks exactly how you want it to look</li>
             <li>Fast fast fast.</li>
           </ul>
         </div>
@@ -308,16 +288,14 @@
 
       <p>
         For a complete understanding of how Dropzone.js works please see the
-        <a href="https://docs.dropzone.dev/configuration/theming"
-          >docs for Dropzone theming</a
-        >.
+        <a href="https://docs.dropzone.dev/configuration/theming">docs for Dropzone theming</a>.
       </p>
 
       <p>
-        Basically Dropzone just does all the heavy lifting for you, and exposes
-        a very high level API that you can use to build your user interface.<br />
-        The main feature of Dropzone is its events that you can listen to, so
-        you can react to every change.
+        Basically Dropzone just does all the heavy lifting for you, and exposes a very high level
+        API that you can use to build your user interface.<br />
+        The main feature of Dropzone is its events that you can listen to, so you can react to every
+        change.
       </p>
 
       <p>This is the HTML that is used as template for every file dropped:</p>
@@ -325,10 +303,10 @@
       <script src="https://gist.github.com/enyo/6ba8ce090590421bf134.js"></script>
 
       <p>
-        As you can see, it's just basic bootstrap HTML that defines how a file
-        should look like. The most important aspect, is that there are
-        <code>data-dz-*</code> markers in the markup, so that Dropzone can
-        update the elements automatically.
+        As you can see, it's just basic bootstrap HTML that defines how a file should look like. The
+        most important aspect, is that there are
+        <code>data-dz-*</code> markers in the markup, so that Dropzone can update the elements
+        automatically.
       </p>
 
       <p>The JavaScript should be self explanatory:</p>

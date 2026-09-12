@@ -11,10 +11,10 @@
       <h3>Dropzone.js</h3>
       <ul>
         <li>
-          <a data-sveltekit-preload-data href="/js/">Overview</a>
+          <a data-sveltekit-preload-data href="/">Overview</a>
         </li>
         <li>
-          <a class="secondary" href="https://docs.dropzone.dev">Documentation</a
+          <a class="secondary" href="/docs/">Documentation</a
           >
         </li>
         <li>

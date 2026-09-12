@@ -1,6 +1,8 @@
-<script>
-  export let title = 'Dropzone'
-  export let description = 'Tools to build great forms.'
+<script lang="ts">
+  let {
+    title = 'Dropzone',
+    description = 'Tools to build great forms.',
+  }: { title?: string; description?: string } = $props()
 </script>
 
 <svelte:head>

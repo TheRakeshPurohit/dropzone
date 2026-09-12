@@ -1,20 +1,27 @@
 <script lang="ts">
-  export let backgroundImage: string | null = null
-  export let backgroundImageMobile: string | null = null
-  export let backgroundColor: string | null = null
-  export let additionalHeight: string | null = null
+  let {
+    backgroundImage = null,
+    backgroundImageMobile = null,
+    backgroundColor = null,
+    additionalHeight = null,
+  }: {
+    backgroundImage?: string | null
+    backgroundImageMobile?: string | null
+    backgroundColor?: string | null
+    additionalHeight?: string | null
+  } = $props()
 
-  backgroundImage = backgroundImage ? `url('${backgroundImage}')` : 'none'
-  backgroundImageMobile = backgroundImageMobile
-    ? `url('${backgroundImageMobile}')`
-    : 'none'
+  const asUrl = (value: string | null) => (value ? `url('${value}')` : 'none')
+
+  const image = $derived(asUrl(backgroundImage))
+  const imageMobile = $derived(asUrl(backgroundImageMobile))
 </script>
 
 <div
   class="backdrop"
   class:additional-height={additionalHeight != null}
-  style="--additional-height:{additionalHeight}; --bg-image:{backgroundImage}; --bg-image-mobile:{backgroundImageMobile}; --bg-color:{backgroundColor};"
-/>
+  style="--additional-height:{additionalHeight}; --bg-image:{image}; --bg-image-mobile:{imageMobile}; --bg-color:{backgroundColor};"
+></div>
 
 <style>
   :global(:root) {

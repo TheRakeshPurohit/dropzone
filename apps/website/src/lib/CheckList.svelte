@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let items: string[]
+  let { items }: { items: string[] } = $props()
 
   import Checkmark from '~icons/ion/md-checkmark'
 </script>

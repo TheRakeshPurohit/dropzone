@@ -1,13 +1,18 @@
-<script>
+<script lang="ts">
   import Backdrop from './Backdrop.svelte'
 
-  export let backgroundColor = 'transparent'
+  import type { Snippet } from 'svelte'
+
+  let {
+    backgroundColor = 'transparent',
+    children,
+  }: { backgroundColor?: string; children: Snippet } = $props()
 </script>
 
 <section class="wrapper">
   <Backdrop {backgroundColor} />
   <div class="backdrop" style="background-color: {backgroundColor};" />
-  <slot />
+  {@render children()}
 </section>
 
 <style>

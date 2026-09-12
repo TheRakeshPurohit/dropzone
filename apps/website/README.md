@@ -47,10 +47,10 @@ npm run build
 
 ## Testing
 
-Tests are written with Cypress.
+Tests are written with [Playwright](https://playwright.dev).
 
 ```bash
-$(npm bin)/cypress open
+pnpm --filter @dropzone/website run test
 ```
 
 ## Deployment

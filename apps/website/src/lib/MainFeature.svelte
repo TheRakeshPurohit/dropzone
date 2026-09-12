@@ -1,15 +1,27 @@
 <script lang="ts">
-  export let title: string
+  import type { Snippet } from 'svelte'
+
+  let {
+    title,
+    children,
+    icon,
+    actions,
+  }: {
+    title: string
+    children: Snippet
+    icon?: Snippet
+    actions?: Snippet
+  } = $props()
 </script>
 
 <section class="main-feature">
   <div class="main-feature__icon-header">
-    <slot name="icon" />
+    {@render icon?.()}
   </div>
   <h3>{title}</h3>
-  <slot />
+  {@render children()}
   <div class="main-feature__actions">
-    <slot name="actions" />
+    {@render actions?.()}
   </div>
 </section>
 

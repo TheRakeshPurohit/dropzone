@@ -1,14 +1,11 @@
 <script lang="ts">
-  import { page } from '$app/state'
   import WhiteLogoSvg from '#lib/WhiteLogoSvg.svelte'
 
   import LogoGithub from '~icons/ion/logo-github'
   import LogoMedium from '~icons/ion/logo-medium'
   import LogoTwitter from '~icons/ion/logo-twitter'
 
-  $: section = page.url.pathname.split('/')[1]
-
-  export let mobile = false
+  let { mobile = false }: { mobile?: boolean } = $props()
 </script>
 
 <nav class:mobile class:desktop={!mobile}>

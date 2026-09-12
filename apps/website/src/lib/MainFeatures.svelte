@@ -1,4 +1,10 @@
-<div class="main-features"><slot /></div>
+<script lang="ts">
+  import type { Snippet } from 'svelte'
+
+  let { children }: { children: Snippet } = $props()
+</script>
+
+<div class="main-features">{@render children()}</div>
 
 <style>
   .main-features {

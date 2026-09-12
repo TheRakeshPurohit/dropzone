@@ -1,8 +1,19 @@
 <script lang="ts">
   import Backdrop from './Backdrop.svelte'
 
-  export let title: string
-  export let backgroundImage = 'default'
+  import type { Snippet } from 'svelte'
+
+  let {
+    title,
+    backgroundImage = 'default',
+    children,
+    visual,
+  }: {
+    title: string
+    backgroundImage?: string
+    children: Snippet
+    visual?: Snippet
+  } = $props()
 
   let desktopImage = `/images/backdrops/${backgroundImage}.jpg`
   let mobileImage = `/images/backdrops/${backgroundImage}-mobile.jpg`
@@ -18,10 +29,10 @@
   <div class="title-section">
     <h1>{title}</h1>
 
-    <slot />
+    {@render children()}
   </div>
-  {#if $$slots.visual}
-    <div class="visual"><slot name="visual" /></div>
+  {#if visual}
+    <div class="visual">{@render visual?.()}</div>
   {/if}
 </section>
 

@@ -1,21 +1,26 @@
 <script lang="ts">
   import ChevronRight from '~icons/ion/chevron-forward'
+  import type { Snippet } from 'svelte'
   import type { Action } from './actions/type'
 
-  export let href: string
-  export let variant: 'outlined' | 'contained' | 'text' = 'outlined'
-  export let color: 'primary' | 'secondary' | 'white' = 'primary'
-  export let use: ActionSet | undefined = undefined
+  type ActionSet<P = unknown> = [Action<P>, P]
 
-  type ActionSet<P extends unknown = unknown> = [Action<P>, P]
+  let {
+    href,
+    variant = 'outlined',
+    color = 'primary',
+    use,
+    children,
+  }: {
+    href: string
+    variant?: 'outlined' | 'contained' | 'text'
+    color?: 'primary' | 'secondary' | 'white'
+    use?: ActionSet
+    children: Snippet
+  } = $props()
 
-  let useFunction: Action = () => undefined
-  let useParam: unknown
-
-  if (use) {
-    useFunction = use[0]
-    useParam = use[1]
-  }
+  const useFunction: Action = $derived(use ? use[0] : () => undefined)
+  const useParam: unknown = $derived(use ? use[1] : undefined)
 </script>
 
 <a
@@ -27,7 +32,7 @@
   class:outlined={variant === 'outlined'}
   class:contained={variant === 'contained'}
   class:text={variant === 'text'}
-  ><slot /> <span class="icon"><ChevronRight /></span></a
+  >{@render children()} <span class="icon"><ChevronRight /></span></a
 >
 
 <style>

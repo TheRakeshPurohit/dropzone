@@ -1,19 +1,20 @@
 <script lang="ts">
   import { afterNavigate } from '$app/navigation'
   import WhiteLogoSvg from '#lib/WhiteLogoSvg.svelte'
-  import { onMount } from 'svelte'
   import CloseIcon from '~icons/ion/close'
   import MenuIcon from '~icons/ion/menu'
   import Menu from './Menu.svelte'
 
-  let isOpen = false
-  let hydrated = false
+  let isOpen = $state(false)
+  // Only true once the client takes over, so the menu is not visible in the
+  // prerendered HTML before it can be interacted with.
+  let hydrated = $state(false)
 
   function toggle() {
     isOpen = !isOpen
   }
 
-  onMount(() => {
+  $effect(() => {
     hydrated = true
   })
 
@@ -27,7 +28,7 @@
 <div class:hydrated class="mobile-menu">
   <a href="/"><WhiteLogoSvg /></a>
 
-  <button class="toggle" aria-label="Open Menu" on:click={toggle}
+  <button class="toggle" aria-label="Open Menu" onclick={toggle}
     ><MenuIcon /></button
   >
 </div>
@@ -36,7 +37,7 @@
   <button
     class="close"
     aria-label="Close Menu"
-    on:click={() => (isOpen = false)}><CloseIcon /></button
+    onclick={() => (isOpen = false)}><CloseIcon /></button
   >
 
   <Menu
