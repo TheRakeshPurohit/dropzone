@@ -1,4 +1,4 @@
-import { trackEvent } from "#lib/plausible";
+import { trackEvent } from "#lib/analytics";
 import type { Action } from "./type";
 
 export const events = {

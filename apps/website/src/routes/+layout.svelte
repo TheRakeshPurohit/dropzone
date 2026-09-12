@@ -7,7 +7,6 @@
   import Header from '#lib/Header/index.svelte'
   import '@fontsource/heebo/400.css'
   import '@fontsource/heebo/700.css'
-  import { env } from '#lib/env'
   import type { Snippet } from 'svelte'
 
   let { children }: { children: Snippet } = $props()
@@ -23,7 +22,7 @@
 
 <Header />
 
-<main data-variant={env.variant}>
+<main>
   {@render children()}
 </main>
 
