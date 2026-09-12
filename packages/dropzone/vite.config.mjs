@@ -39,5 +39,15 @@ export default defineConfig({
       instances: [{ browser: "chromium" }],
       headless: true,
     },
+
+    coverage: {
+      provider: "v8",
+      // Without this, only files a test happened to import are counted, so a
+      // module nothing reaches would quietly improve the percentage by being
+      // absent rather than being reported as uncovered.
+      include: ["src/**/*.js"],
+      reporter: ["text", "html", "json", "json-summary", "lcov"],
+      reportsDirectory: "coverage",
+    },
   },
 });

@@ -16,6 +16,7 @@
     "dev:website": "pnpm --filter @dropzone/website run dev",
     "dev:docs": "pnpm --filter @dropzone/docs run start",
     "test": "pnpm --filter dropzone run test",
+    "test:coverage": "pnpm --filter dropzone run test:coverage",
     "test:watch": "pnpm --filter dropzone run test:watch",
     "test:e2e": "pnpm --filter dropzone run test:e2e",
     "format": "oxfmt --ignore-path .gitignore --ignore-path .oxfmtignore .",

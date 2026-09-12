@@ -3,8 +3,15 @@ name: CI
 on:
   push:
     branches: [main]
+  # Deliberately not restricted to pull requests targeting main: a stacked
+  # branch opened against its parent would otherwise report no checks at all,
+  # which reads as "nothing failed" rather than "nothing ran".
   pull_request:
-    branches: [main]
+
+permissions:
+  contents: read
+  # The coverage report is posted as a pull request comment.
+  pull-requests: write
 
 jobs:
   library:
@@ -32,8 +39,21 @@ jobs:
       - run: pnpm format:check
       - run: pnpm lint
       - run: pnpm build:lib
-      - run: pnpm test
+      - run: pnpm test:coverage
       - run: pnpm test:e2e
+
+      # Writes the coverage table into the job summary and, on a pull request,
+      # posts it as a comment. A pull request from a fork only gets a
+      # read-only token, so the comment cannot be posted there and the step is
+      # allowed to fail without failing the build.
+      - name: Report coverage
+        if: always()
+        continue-on-error: true
+        uses: davelosert/vitest-coverage-report-action@v2
+        with:
+          vite-config-path: packages/dropzone/vite.config.mjs
+          json-summary-path: packages/dropzone/coverage/coverage-summary.json
+          json-final-path: packages/dropzone/coverage/coverage-final.json
 
       - name: Upload Playwright report
         if: failure()
