@@ -21,3 +21,6 @@ playwright-report
 
 # Docusaurus
 .docusaurus
+
+# Assembled deployable site
+_site

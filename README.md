@@ -86,15 +86,28 @@ pnpm build          # the library and the docs
 pnpm test           # the library's unit tests
 pnpm test:e2e       # the library's browser tests
 pnpm dev:docs       # the documentation, locally
+pnpm dev:website    # the website, locally
 ```
 
-The website is not part of `pnpm build`, and `pnpm dev:site` and `pnpm build:site`
-only run on Node 16 -- see [`apps/website/README.md`](apps/website/README.md).
-That is temporary, and goes away with the SvelteKit migration described in
-[`ROADMAP.md`](ROADMAP.md).
+### Building the deployable site
 
-The website and the documentation are deployed together as one GitHub Pages
-site: the website at the root, the documentation under `/docs`.
+The website and the documentation are published together as one GitHub Pages
+site: the website at the root, the documentation under `/docs`. One command
+produces exactly what gets deployed, in `_site/`:
+
+```bash
+pnpm build:site
+```
+
+CI runs [the same script](scripts/build-site.sh), a step at a time, so what you
+get locally is what ships.
+
+The two halves need different versions of Node, which is why this is a script
+rather than a one-liner: the website only builds on Node 16, and `pnpm` itself
+will not start there. `pnpm build:site` borrows Node 16 through `nvm` for that
+step and tells you what to do if it cannot. All of this goes away with the
+SvelteKit migration described in [`ROADMAP.md`](ROADMAP.md); see
+[`apps/website/README.md`](apps/website/README.md) for the detail.
 
 ## Community
 

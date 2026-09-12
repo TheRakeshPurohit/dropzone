@@ -37,35 +37,21 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      # The same script developers run locally, one step at a time, because
+      # the two halves need different versions of Node.
       - name: Build the documentation
-        run: pnpm build:docs
+        run: ./scripts/build-site.sh docs
 
-      # See the comment in ci.yml: the website only builds on Node 16 until
-      # the SvelteKit migration lands.
+      # The website only builds on Node 16 until the SvelteKit migration
+      # lands; see ROADMAP.md. The script explains why, and refuses to guess.
       - uses: actions/setup-node@v7
         with:
           node-version: 16
-
-      # Invoked directly rather than through pnpm: pnpm 11 will not start on
-      # Node 16 (corepack uses URL.canParse, which needs 18.17+).
       - name: Build the website
-        working-directory: apps/website
-        env:
-          BRANCH: main
-        run: ./node_modules/.bin/svelte-kit build
+        run: ./scripts/build-site.sh website
 
       - name: Assemble
-        run: |
-          rm -rf _site
-          mkdir -p _site
-          cp -R apps/website/build/. _site/
-          cp -R apps/docs/build _site/docs
-          # Kept alongside the repository setting so the domain survives a
-          # deployment made before the setting is applied.
-          echo "www.dropzone.dev" > _site/CNAME
-
-          test -f _site/index.html || { echo "website build missing"; exit 1; }
-          test -f _site/docs/index.html || { echo "docs build missing"; exit 1; }
+        run: ./scripts/build-site.sh assemble
 
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5

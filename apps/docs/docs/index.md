@@ -1,8 +1,5 @@
 ---
 slug: /
----
-
----
 description: The documentation for the JavaScript library Dropzone.
 ---
 

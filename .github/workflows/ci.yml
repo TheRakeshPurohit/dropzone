@@ -82,10 +82,5 @@ jobs:
         with:
           node-version: 16
 
-      # Invoked directly rather than through pnpm: pnpm 11 will not start on
-      # Node 16 (corepack uses URL.canParse, which needs 18.17+).
       - name: Build the website
-        working-directory: apps/website
-        env:
-          BRANCH: main
-        run: ./node_modules/.bin/svelte-kit build
+        run: ./scripts/build-site.sh website
