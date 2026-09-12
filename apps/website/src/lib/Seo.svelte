@@ -1,8 +1,8 @@
 <script lang="ts">
   let {
-    title = 'Dropzone',
-    description = 'Tools to build great forms.',
-  }: { title?: string; description?: string } = $props()
+    title = "Dropzone",
+    description = "Tools to build great forms.",
+  }: { title?: string; description?: string } = $props();
 </script>
 
 <svelte:head>

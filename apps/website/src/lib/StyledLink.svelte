@@ -1,38 +1,37 @@
 <script lang="ts">
-  import ChevronRight from '~icons/ion/chevron-forward'
-  import type { Snippet } from 'svelte'
-  import type { Action } from './actions/type'
+  import ChevronRight from "~icons/ion/chevron-forward";
+  import type { Snippet } from "svelte";
+  import type { Action } from "./actions/type";
 
-  type ActionSet<P = unknown> = [Action<P>, P]
+  type ActionSet<P = unknown> = [Action<P>, P];
 
   let {
     href,
-    variant = 'outlined',
-    color = 'primary',
+    variant = "outlined",
+    color = "primary",
     use,
     children,
   }: {
-    href: string
-    variant?: 'outlined' | 'contained' | 'text'
-    color?: 'primary' | 'secondary' | 'white'
-    use?: ActionSet
-    children: Snippet
-  } = $props()
+    href: string;
+    variant?: "outlined" | "contained" | "text";
+    color?: "primary" | "secondary" | "white";
+    use?: ActionSet;
+    children: Snippet;
+  } = $props();
 
-  const useFunction: Action = $derived(use ? use[0] : () => undefined)
-  const useParam: unknown = $derived(use ? use[1] : undefined)
+  const useFunction: Action = $derived(use ? use[0] : () => undefined);
+  const useParam: unknown = $derived(use ? use[1] : undefined);
 </script>
 
 <a
   use:useFunction={useParam}
   {href}
-  target={href.startsWith('http') ? '_blank' : null}
-  rel={href.startsWith('http') ? 'nofollow' : null}
+  target={href.startsWith("http") ? "_blank" : null}
+  rel={href.startsWith("http") ? "nofollow" : null}
   style="--color: var(--{color}-color); --bg-color: var(--{color}-bg-color);"
-  class:outlined={variant === 'outlined'}
-  class:contained={variant === 'contained'}
-  class:text={variant === 'text'}
-  >{@render children()} <span class="icon"><ChevronRight /></span></a
+  class:outlined={variant === "outlined"}
+  class:contained={variant === "contained"}
+  class:text={variant === "text"}>{@render children()} <span class="icon"><ChevronRight /></span></a
 >
 
 <style>

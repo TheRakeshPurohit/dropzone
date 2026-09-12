@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte'
+  import type { Snippet } from "svelte";
 
   let {
     title,
@@ -7,11 +7,11 @@
     icon,
     actions,
   }: {
-    title: string
-    children: Snippet
-    icon?: Snippet
-    actions?: Snippet
-  } = $props()
+    title: string;
+    children: Snippet;
+    icon?: Snippet;
+    actions?: Snippet;
+  } = $props();
 </script>
 
 <section class="main-feature">

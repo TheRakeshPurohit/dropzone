@@ -5,16 +5,16 @@
     backgroundColor = null,
     additionalHeight = null,
   }: {
-    backgroundImage?: string | null
-    backgroundImageMobile?: string | null
-    backgroundColor?: string | null
-    additionalHeight?: string | null
-  } = $props()
+    backgroundImage?: string | null;
+    backgroundImageMobile?: string | null;
+    backgroundColor?: string | null;
+    additionalHeight?: string | null;
+  } = $props();
 
-  const asUrl = (value: string | null) => (value ? `url('${value}')` : 'none')
+  const asUrl = (value: string | null) => (value ? `url('${value}')` : "none");
 
-  const image = $derived(asUrl(backgroundImage))
-  const imageMobile = $derived(asUrl(backgroundImageMobile))
+  const image = $derived(asUrl(backgroundImage));
+  const imageMobile = $derived(asUrl(backgroundImageMobile));
 </script>
 
 <div

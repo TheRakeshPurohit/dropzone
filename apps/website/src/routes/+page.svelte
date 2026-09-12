@@ -1,16 +1,16 @@
 <script>
-  import Actions from '#lib/Actions.svelte'
-  import CheckList from '#lib/CheckList.svelte'
-  import ContentSection from '#lib/ContentSection.svelte'
-  import Dropzone from '#lib/Dropzone.svelte'
-  import Heading from '#lib/Heading.svelte'
-  import Intro from '#lib/Intro.svelte'
-  import MainFeature from '#lib/MainFeature.svelte'
-  import MainFeatures from '#lib/MainFeatures.svelte'
-  import MenoTeaser from '#lib/MenoTeaser.svelte'
-  import Seo from '#lib/Seo.svelte'
-  import StyledLink from '#lib/StyledLink.svelte'
-  import PlusIcon from '~icons/ion/plus-round'
+  import Actions from "#lib/Actions.svelte";
+  import CheckList from "#lib/CheckList.svelte";
+  import ContentSection from "#lib/ContentSection.svelte";
+  import Dropzone from "#lib/Dropzone.svelte";
+  import Heading from "#lib/Heading.svelte";
+  import Intro from "#lib/Intro.svelte";
+  import MainFeature from "#lib/MainFeature.svelte";
+  import MainFeatures from "#lib/MainFeatures.svelte";
+  import MenoTeaser from "#lib/MenoTeaser.svelte";
+  import Seo from "#lib/Seo.svelte";
+  import StyledLink from "#lib/StyledLink.svelte";
+  import PlusIcon from "~icons/ion/plus-round";
 </script>
 
 <Seo
@@ -20,22 +20,18 @@
 
 <Intro title="File uploads made easy">
   <p>
-    <strong>Dropzone.js</strong> is one of the most popular drag and drop
-    JavaScript libraries. It is
-    <strong>free</strong>, <strong>fully open source</strong>, and makes it easy
-    for you to handle dropped files on your website.
+    <strong>Dropzone.js</strong> is one of the most popular drag and drop JavaScript libraries. It
+    is
+    <strong>free</strong>, <strong>fully open source</strong>, and makes it easy for you to handle
+    dropped files on your website.
   </p>
 
   <p>It's meant to look good by default, and is highly customizable.</p>
 
   <Actions>
-    <StyledLink href="/docs/" color="white"
-      >Documentation</StyledLink
-    >
-    <StyledLink
-      href="/docs/getting-started/installation/stand-alone"
-      color="white"
-      variant="text">Download</StyledLink
+    <StyledLink href="/docs/" color="white">Documentation</StyledLink>
+    <StyledLink href="/docs/getting-started/installation/stand-alone" color="white" variant="text"
+      >Download</StyledLink
     >
   </Actions>
 
@@ -50,9 +46,8 @@
         <img src="/images/icons/github.svg" alt="GitHub" />
       {/snippet}
       <p>
-        You can get all the source code on GitHub, as well as installation
-        instructions. If you encounter an issue with this library, this is the
-        place to create an issue.
+        You can get all the source code on GitHub, as well as installation instructions. If you
+        encounter an issue with this library, this is the place to create an issue.
       </p>
       {#snippet actions()}
         <StyledLink href="https://github.com/dropzone/dropzone">GitHub</StyledLink>
@@ -63,8 +58,8 @@
         <img src="/images/icons/gitbook.svg" alt="Documentation" />
       {/snippet}
       <p>
-        All the documentation about Dropzone, and the multiple ways to configure
-        and customise it, can be found on GitBook.
+        All the documentation about Dropzone, and the multiple ways to configure and customise it,
+        can be found on GitBook.
       </p>
       {#snippet actions()}
         <StyledLink href="/docs/">Docs</StyledLink>
@@ -79,12 +74,9 @@
         </div>
       {/snippet}
       <p>
-        If you need help, there are{' '}
-        <a href="https://github.com/dropzone/dropzone/discussions">
-          GitHub Discussions
-        </a>{' '}
-        and Stackoverflow. Use the tag dropzonejs and there'll be plenty of people
-        helping you out.
+        If you need help, there are{" "}
+        <a href="https://github.com/dropzone/dropzone/discussions"> GitHub Discussions </a>{" "}
+        and Stackoverflow. Use the tag dropzonejs and there'll be plenty of people helping you out.
       </p>
       {#snippet actions()}
         <StyledLink href="https://stackoverflow.com/questions/tagged/dropzone.js">
@@ -105,25 +97,25 @@
     <div class="features__description">
       <h2>Built to last</h2>
       <p>
-        Dropzone is a robust library trusted by millions. It started in 2012
-        with compatibility in mind. Whether your users use an outdated browser,
-        or have JavaScript enabled, Dropzone got you covered.
+        Dropzone is a robust library trusted by millions. It started in 2012 with compatibility in
+        mind. Whether your users use an outdated browser, or have JavaScript enabled, Dropzone got
+        you covered.
       </p>
     </div>
     <div class="features__list">
       <CheckList
         items={[
-          'Chunked uploads',
-          'Error handling',
-          'Well tested',
-          'Wide browser support',
-          'Fallback without JavaScript',
-          'Fully customizable',
-          'Open Source',
-          'Translation support',
-          'jQuery plugin',
-          'File queues',
-          'Multiple installation options',
+          "Chunked uploads",
+          "Error handling",
+          "Well tested",
+          "Wide browser support",
+          "Fallback without JavaScript",
+          "Fully customizable",
+          "Open Source",
+          "Translation support",
+          "jQuery plugin",
+          "File queues",
+          "Multiple installation options",
         ]}
       />
     </div>
@@ -132,19 +124,19 @@
     <div class="features__description">
       <h2>Looking good by default</h2>
       <p>
-        One main goal when creating Dropzone was to have file previews that are
-        not only practical, but also look good. That's why the default design of
-        Dropzone looks great without you needing to do anything.
+        One main goal when creating Dropzone was to have file previews that are not only practical,
+        but also look good. That's why the default design of Dropzone looks great without you
+        needing to do anything.
       </p>
     </div>
     <div class="features__list">
       <CheckList
         items={[
-          'Good looking defaults',
-          'Image Previews',
-          'Progress Bars',
-          'Success & error icons',
-          'Themes',
+          "Good looking defaults",
+          "Image Previews",
+          "Progress Bars",
+          "Success & error icons",
+          "Themes",
         ]}
       />
     </div>

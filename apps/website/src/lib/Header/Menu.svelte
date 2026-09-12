@@ -1,11 +1,11 @@
 <script lang="ts">
-  import WhiteLogoSvg from '#lib/WhiteLogoSvg.svelte'
+  import WhiteLogoSvg from "#lib/WhiteLogoSvg.svelte";
 
-  import LogoGithub from '~icons/ion/logo-github'
-  import LogoMedium from '~icons/ion/logo-medium'
-  import LogoTwitter from '~icons/ion/logo-twitter'
+  import LogoGithub from "~icons/ion/logo-github";
+  import LogoMedium from "~icons/ion/logo-medium";
+  import LogoTwitter from "~icons/ion/logo-twitter";
 
-  let { mobile = false }: { mobile?: boolean } = $props()
+  let { mobile = false }: { mobile?: boolean } = $props();
 </script>
 
 <nav class:mobile class:desktop={!mobile}>
@@ -97,10 +97,7 @@
   }
 
   .link--icon {
-    padding: 0
-      calc(
-        (var(--menu-item-height) - var(--icon-size)) / 2 - var(--border-width)
-      );
+    padding: 0 calc((var(--menu-item-height) - var(--icon-size)) / 2 - var(--border-width));
   }
   .link--icon:not(:last-child) {
     margin-right: 0.5rem;

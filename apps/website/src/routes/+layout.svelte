@@ -1,23 +1,23 @@
 <script lang="ts">
-  import '../style/reset.css'
-  import '../style/fonts.css'
-  import '../style/app.css'
+  import "../style/reset.css";
+  import "../style/fonts.css";
+  import "../style/app.css";
 
-  import Footer from '#lib/Footer.svelte'
-  import Header from '#lib/Header/index.svelte'
-  import '@fontsource/heebo/400.css'
-  import '@fontsource/heebo/700.css'
-  import type { Snippet } from 'svelte'
+  import Footer from "#lib/Footer.svelte";
+  import Header from "#lib/Header/index.svelte";
+  import "@fontsource/heebo/400.css";
+  import "@fontsource/heebo/700.css";
+  import type { Snippet } from "svelte";
 
-  let { children }: { children: Snippet } = $props()
+  let { children }: { children: Snippet } = $props();
 
   $effect(() => {
-    document.body.classList.add('hydrated')
+    document.body.classList.add("hydrated");
 
-    for (const backdrop of ['default', 'plus']) {
-      new Image().src = `/images/backdrops/${backdrop}.jpg`
+    for (const backdrop of ["default", "plus"]) {
+      new Image().src = `/images/backdrops/${backdrop}.jpg`;
     }
-  })
+  });
 </script>
 
 <Header />
@@ -30,8 +30,8 @@
 
 <style>
   :global(:root) {
-    font-family: 'Heebo', sans-serif;
-    --font-header: 'BespokeSans-Variable', sans-serif;
+    font-family: "Heebo", sans-serif;
+    --font-header: "BespokeSans-Variable", sans-serif;
 
     --button-font-size: 0.94rem;
     --button-contained-background: rgba(255, 255, 255, 0.2);
@@ -66,7 +66,7 @@
 
     --intro-title-color: white;
 
-    --backdrop-position: 'center bottom';
+    --backdrop-position: "center bottom";
     --backdrop-skew-rotation: -5deg;
     /* https://ddg.gg/?q=tan(5+*+pi+%2F+180)&ia=calculator */
     --backdrop-skew-tan: 0.08748866353;

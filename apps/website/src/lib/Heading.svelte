@@ -1,10 +1,7 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte'
+  import type { Snippet } from "svelte";
 
-  let {
-    subtitle = null,
-    children,
-  }: { subtitle?: string | null; children: Snippet } = $props()
+  let { subtitle = null, children }: { subtitle?: string | null; children: Snippet } = $props();
 </script>
 
 <h1>{@render children()}</h1>

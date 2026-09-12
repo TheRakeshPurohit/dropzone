@@ -1,22 +1,22 @@
 <script lang="ts">
-  import Backdrop from './Backdrop.svelte'
+  import Backdrop from "./Backdrop.svelte";
 
-  import type { Snippet } from 'svelte'
+  import type { Snippet } from "svelte";
 
   let {
     title,
-    backgroundImage = 'default',
+    backgroundImage = "default",
     children,
     visual,
   }: {
-    title: string
-    backgroundImage?: string
-    children: Snippet
-    visual?: Snippet
-  } = $props()
+    title: string;
+    backgroundImage?: string;
+    children: Snippet;
+    visual?: Snippet;
+  } = $props();
 
-  let desktopImage = `/images/backdrops/${backgroundImage}.jpg`
-  let mobileImage = `/images/backdrops/${backgroundImage}-mobile.jpg`
+  let desktopImage = `/images/backdrops/${backgroundImage}.jpg`;
+  let mobileImage = `/images/backdrops/${backgroundImage}-mobile.jpg`;
 </script>
 
 <section class="wrapper">

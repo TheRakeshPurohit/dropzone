@@ -1,5 +1,5 @@
 <script>
-  import WhiteLogoSvg from './WhiteLogoSvg.svelte'
+  import WhiteLogoSvg from "./WhiteLogoSvg.svelte";
 </script>
 
 <footer>
@@ -14,13 +14,10 @@
           <a data-sveltekit-preload-data href="/">Overview</a>
         </li>
         <li>
-          <a class="secondary" href="/docs/">Documentation</a
-          >
+          <a class="secondary" href="/docs/">Documentation</a>
         </li>
         <li>
-          <a class="secondary" href="https://github.com/dropzone/dropzone"
-            >GitHub</a
-          >
+          <a class="secondary" href="https://github.com/dropzone/dropzone">GitHub</a>
         </li>
       </ul>
     </div>
@@ -40,9 +37,7 @@
       <ul>
         <li>
           <a href="https://www.pausly.app/">Pausly</a><br />
-          <small
-            >Take short (stretch) breaks with your friends and colleagues.</small
-          >
+          <small>Take short (stretch) breaks with your friends and colleagues.</small>
         </li>
         <li>
           <a href="https://melodle.yesmeno.com">Melodle</a><br />
@@ -62,11 +57,7 @@
     text-align: center;
     margin-top: 9rem;
     padding: 0 var(--calculated-content-padding) 4rem;
-    background: linear-gradient(
-      to bottom,
-      transparent,
-      hsl(225deg 100% 70% / 10%)
-    );
+    background: linear-gradient(to bottom, transparent, hsl(225deg 100% 70% / 10%));
   }
   a {
     color: inherit;
@@ -87,9 +78,9 @@
 
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
-      'home     home'
-      'js       social'
-      'projects projects';
+      "home     home"
+      "js       social"
+      "projects projects";
   }
   nav small {
     line-height: 1.2;
@@ -101,7 +92,7 @@
   @media (min-width: 800px) {
     nav {
       grid-template-columns: repeat(5, 1fr);
-      grid-template-areas: 'home js social projects';
+      grid-template-areas: "home js social projects";
     }
   }
   .dropzone-home {

@@ -1,7 +1,7 @@
 <script lang="ts">
-  let { items }: { items: string[] } = $props()
+  let { items }: { items: string[] } = $props();
 
-  import Checkmark from '~icons/ion/md-checkmark'
+  import Checkmark from "~icons/ion/md-checkmark";
 </script>
 
 <ul>

@@ -18,6 +18,16 @@ This is not pedantry. The previous version of this site asked for
 meant something four majors newer, leaving the site stuck on a 2021 prerelease
 that no longer built on any supported version of Node.
 
+### Known: the first dev request 500s
+
+`vite dev` returns a 500 for the very first server-rendered request after it
+starts, then works normally -- reload once. It fails inside Svelte's dev-only
+element validation (`push_element` reads a null SSR context), not in this
+app's code, and only the first render is affected. Production builds prerender
+every page without it.
+
+Nothing here can fix it; it goes when the prerelease does.
+
 Two things here work around gaps in the prerelease and should be deleted when it
 catches up: `src/types/app-env.d.ts`, because `$app/env` ships no declarations,
 and the `paths` entries in `tsconfig.json`, because TypeScript does not resolve

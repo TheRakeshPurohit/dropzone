@@ -1,12 +1,12 @@
 <script lang="ts">
-  import Backdrop from './Backdrop.svelte'
+  import Backdrop from "./Backdrop.svelte";
 
-  import type { Snippet } from 'svelte'
+  import type { Snippet } from "svelte";
 
   let {
-    backgroundColor = 'transparent',
+    backgroundColor = "transparent",
     children,
-  }: { backgroundColor?: string; children: Snippet } = $props()
+  }: { backgroundColor?: string; children: Snippet } = $props();
 </script>
 
 <section class="wrapper">

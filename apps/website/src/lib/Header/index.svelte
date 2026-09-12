@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Menu from './Menu.svelte'
-  import MobileMenu from './MobileMenu.svelte'
+  import Menu from "./Menu.svelte";
+  import MobileMenu from "./MobileMenu.svelte";
 </script>
 
 <header>
@@ -27,11 +27,7 @@
     font-weight: 600;
     color: white;
 
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.25),
-      rgba(0, 0, 0, 0)
-    );
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
   }
 
   .menu,

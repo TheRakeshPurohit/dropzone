@@ -1,43 +1,39 @@
 <script lang="ts">
-  import { afterNavigate } from '$app/navigation'
-  import WhiteLogoSvg from '#lib/WhiteLogoSvg.svelte'
-  import CloseIcon from '~icons/ion/close'
-  import MenuIcon from '~icons/ion/menu'
-  import Menu from './Menu.svelte'
+  import { afterNavigate } from "$app/navigation";
+  import WhiteLogoSvg from "#lib/WhiteLogoSvg.svelte";
+  import CloseIcon from "~icons/ion/close";
+  import MenuIcon from "~icons/ion/menu";
+  import Menu from "./Menu.svelte";
 
-  let isOpen = $state(false)
+  let isOpen = $state(false);
   // Only true once the client takes over, so the menu is not visible in the
   // prerendered HTML before it can be interacted with.
-  let hydrated = $state(false)
+  let hydrated = $state(false);
 
   function toggle() {
-    isOpen = !isOpen
+    isOpen = !isOpen;
   }
 
   $effect(() => {
-    hydrated = true
-  })
+    hydrated = true;
+  });
 
   // Close the menu whenever the route changes. This used to subscribe to the
   // page store, which SvelteKit 3 no longer exposes.
   afterNavigate(() => {
-    isOpen = false
-  })
+    isOpen = false;
+  });
 </script>
 
 <div class:hydrated class="mobile-menu">
   <a href="/"><WhiteLogoSvg /></a>
 
-  <button class="toggle" aria-label="Open Menu" onclick={toggle}
-    ><MenuIcon /></button
-  >
+  <button class="toggle" aria-label="Open Menu" onclick={toggle}><MenuIcon /></button>
 </div>
 
 <nav class:open={isOpen}>
-  <button
-    class="close"
-    aria-label="Close Menu"
-    onclick={() => (isOpen = false)}><CloseIcon /></button
+  <button class="close" aria-label="Close Menu" onclick={() => (isOpen = false)}
+    ><CloseIcon /></button
   >
 
   <Menu

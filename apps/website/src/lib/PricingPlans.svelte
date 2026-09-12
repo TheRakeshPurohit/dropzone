@@ -1,5 +1,5 @@
 <script>
-  import { events, trackViewed } from '#lib/actions/track'
+  import { events, trackViewed } from "#lib/actions/track";
 </script>
 
 <div class="plans">
@@ -15,9 +15,7 @@
     </ul>
     <div class="price">
       <small><strong>30</strong> days <strong>free trial</strong>, then</small>
-      <span use:trackViewed={events.pricingViewed} class="price__number"
-        >$4</span
-      >
+      <span use:trackViewed={events.pricingViewed} class="price__number">$4</span>
       <small>net per month</small>
     </div>
   </div>
@@ -88,7 +86,7 @@
 
   ul {
     flex: 1;
-    list-style-image: url('/images/list-checkmark.svg');
+    list-style-image: url("/images/list-checkmark.svg");
   }
 
   li {
