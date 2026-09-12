@@ -44,5 +44,5 @@ See the installation section on how to add the stylesheet if you want your Dropz
 
 See the [Theming](../theming.md) section, for a more in depth look at how to completely change Dropzone’s UI.
 
-I created an example where I made Dropzone look and feel exactly the way jQuery File Uploader does with a few lines of configuration code. [Check it out!](https://www.dropzonejs.com/bootstrap.html)
+I created an example where I made Dropzone look and feel exactly the way jQuery File Uploader does with a few lines of configuration code. [Check it out!](https://www.dropzone.dev/bootstrap.html)
 
