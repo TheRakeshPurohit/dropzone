@@ -1,6 +1,6 @@
-<img alt="Dropzone.js" src="https://raw.githubusercontent.com/dropzone/dropzone/assets/github-logo.svg" />
+<img alt="Dropzone.js" src="https://raw.githubusercontent.com/enyo/dropzone/assets/github-logo.svg" />
 
-[![CI](https://github.com/dropzone/dropzone/actions/workflows/ci.yml/badge.svg)](https://github.com/dropzone/dropzone/actions/workflows/ci.yml)
+[![CI](https://github.com/enyo/dropzone/actions/workflows/ci.yml/badge.svg)](https://github.com/enyo/dropzone/actions/workflows/ci.yml)
 
 Dropzone is a JavaScript library that turns any HTML element into a dropzone.
 This means that a user can drag and drop a file onto it, and Dropzone will
@@ -60,7 +60,7 @@ Use the standalone files like this:
 ---
 
 - [📚 Full documentation](https://docs.dropzone.dev)
-- [⚙️ `src/options.js`](https://github.com/dropzone/dropzone/blob/main/src/options.js)
+- [⚙️ `src/options.js`](https://github.com/enyo/dropzone/blob/main/src/options.js)
   for all available options
 
 ---
@@ -112,7 +112,7 @@ tracker. Only post an issue here if you think you discovered a bug.
 If you have a feature request or want to discuss something, please use the
 [discussions][] as well.
 
-[discussions]: https://github.com/dropzone/dropzone/discussions
+[discussions]: https://github.com/enyo/dropzone/discussions
 [so]: https://stackoverflow.com/questions/tagged/dropzone.js
 
 > ⚠️ **Please read the [contributing guidelines](CONTRIBUTING.md) before you
@@ -137,4 +137,4 @@ If you have a feature request or want to discuss something, please use the
 
 # MIT License
 
-See the [LICENSE](https://github.com/dropzone/dropzone/blob/main/LICENSE) file
+See the [LICENSE](https://github.com/enyo/dropzone/blob/main/LICENSE) file

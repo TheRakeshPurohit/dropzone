@@ -2,7 +2,7 @@
 
 :::info
 
-Checkout the [Discussions section on Github](https://github.com/dropzone/dropzone/discussions) for more content.
+Checkout the [Discussions section on Github](https://github.com/enyo/dropzone/discussions) for more content.
 
 :::
 

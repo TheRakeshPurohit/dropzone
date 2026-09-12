@@ -17,7 +17,7 @@
           <a class="secondary" href="/docs/">Documentation</a>
         </li>
         <li>
-          <a class="secondary" href="https://github.com/dropzone/dropzone">GitHub</a>
+          <a class="secondary" href="https://github.com/enyo/dropzone">GitHub</a>
         </li>
       </ul>
     </div>

@@ -21,7 +21,7 @@ const dropzone = new Dropzone("div#myId", { url: "/file/post" });
 - [`src/options.js`](./src/options.js) for every available option
 - [Changelog](./CHANGELOG.md)
 
-Development happens in the [dropzone monorepo](https://github.com/dropzone/dropzone);
+Development happens in the [dropzone monorepo](https://github.com/enyo/dropzone);
 this package lives in `packages/dropzone`. See the repository README for how to
 build and test it.
 
@@ -30,4 +30,4 @@ build and test it.
 
 ## MIT License
 
-See [LICENSE](https://github.com/dropzone/dropzone/blob/main/LICENSE).
+See [LICENSE](https://github.com/enyo/dropzone/blob/main/LICENSE).

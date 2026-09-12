@@ -13,7 +13,7 @@
   <div class="menu__actions">
     <a
       class="link link--pill link--icon"
-      href="https://github.com/dropzone/dropzone"
+      href="https://github.com/enyo/dropzone"
       target="_blank"
       rel="nofollow"
     >

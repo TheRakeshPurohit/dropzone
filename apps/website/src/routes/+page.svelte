@@ -49,7 +49,7 @@
         encounter an issue with this library, this is the place to create an issue.
       </p>
       {#snippet actions()}
-        <StyledLink href="https://github.com/dropzone/dropzone">GitHub</StyledLink>
+        <StyledLink href="https://github.com/enyo/dropzone">GitHub</StyledLink>
       {/snippet}
     </MainFeature>
     <MainFeature title="Documentation">
@@ -74,7 +74,7 @@
       {/snippet}
       <p>
         If you need help, there are{" "}
-        <a href="https://github.com/dropzone/dropzone/discussions"> GitHub Discussions </a>{" "}
+        <a href="https://github.com/enyo/dropzone/discussions"> GitHub Discussions </a>{" "}
         and Stackoverflow. Use the tag dropzonejs and there'll be plenty of people helping you out.
       </p>
       {#snippet actions()}

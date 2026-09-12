@@ -31,7 +31,7 @@ const config = {
         docs: {
           routeBasePath: "/",
           sidebarPath: "./sidebars.js",
-          editUrl: "https://github.com/dropzone/dropzone/tree/main/apps/docs/",
+          editUrl: "https://github.com/enyo/dropzone/tree/main/apps/docs/",
         },
         blog: false,
         theme: { customCss: "./src/css/custom.css" },
@@ -47,7 +47,7 @@ const config = {
         items: [
           { type: "docSidebar", sidebarId: "docs", position: "left", label: "Docs" },
           { href: "https://www.dropzone.dev/", label: "Home", position: "right" },
-          { href: "https://github.com/dropzone/dropzone", label: "GitHub", position: "right" },
+          { href: "https://github.com/enyo/dropzone", label: "GitHub", position: "right" },
         ],
       },
       footer: {
@@ -62,7 +62,7 @@ const config = {
             items: [
               {
                 label: "Discussions",
-                href: "https://github.com/dropzone/dropzone/discussions",
+                href: "https://github.com/enyo/dropzone/discussions",
               },
               {
                 label: "Stack Overflow",
@@ -73,7 +73,7 @@ const config = {
           {
             title: "More",
             items: [
-              { label: "GitHub", href: "https://github.com/dropzone/dropzone" },
+              { label: "GitHub", href: "https://github.com/enyo/dropzone" },
               { label: "npm", href: "https://www.npmjs.com/package/dropzone" },
             ],
           },

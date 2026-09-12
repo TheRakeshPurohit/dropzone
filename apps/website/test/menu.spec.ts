@@ -21,6 +21,6 @@ test("the header links to the repository", async ({ page }) => {
   await page.goto("/");
 
   await expect(
-    page.locator('header a[href="https://github.com/dropzone/dropzone"]').first(),
+    page.locator('header a[href="https://github.com/enyo/dropzone"]').first(),
   ).toBeAttached();
 });

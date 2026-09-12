@@ -30,4 +30,4 @@ Dropzone has dropped Internet Explorer support in version 6, which is still in b
 <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
 ```
 
-If you do, please make sure to check the [CHANGELOG](https://github.com/dropzone/dropzone/blob/main/CHANGELOG.md) to make sure the breaking changes don't affect you.
+If you do, please make sure to check the [CHANGELOG](https://github.com/enyo/dropzone/blob/main/CHANGELOG.md) to make sure the breaking changes don't affect you.

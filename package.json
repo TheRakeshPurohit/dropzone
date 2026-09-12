@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dropzone/dropzone.git"
+    "url": "git+https://github.com/enyo/dropzone.git"
   },
   "scripts": {
     "build": "pnpm run build:lib && pnpm run build:docs",

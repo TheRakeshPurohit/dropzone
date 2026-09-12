@@ -44,5 +44,5 @@ let mockFile = { name: "Filename", size: 12345 };
 myDropzone.displayExistingFile(mockFile, 'https://image-url');
 ```
 
-See the FAQ on [How to show files stored on server](https://github.com/dropzone/dropzone/discussions/1909).
+See the FAQ on [How to show files stored on server](https://github.com/enyo/dropzone/discussions/1909).
 
