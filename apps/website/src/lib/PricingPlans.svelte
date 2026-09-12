@@ -1,5 +1,5 @@
 <script>
-  import { events, trackViewed } from '$lib/actions/track'
+  import { events, trackViewed } from '#lib/actions/track'
 </script>
 
 <div class="plans">

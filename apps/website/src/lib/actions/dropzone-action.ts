@@ -17,7 +17,10 @@ interface DropzoneWithSubmit extends Dropzone {
 export default async function loadDropzoneAction(): Promise<
   Action<undefined, HTMLDivElement>
 > {
-  if (browser) {
+  // Nothing to attach to while prerendering.
+  if (!browser) return () => undefined
+
+  {
     const pkg = await import('dropzone')
     const Dropzone = pkg.default
     Dropzone.autoDiscover = false
@@ -57,25 +60,28 @@ function setupDropzone(DropzoneClass: typeof Dropzone, node: HTMLDivElement) {
 
     for (let i = 0; i < steps; i++) {
       timeouts.push(
-        setTimeout(() => {
-          dropzone.emit(
-            'uploadprogress',
-            files[0],
-            (100 / (steps - 1)) * i,
-            (files[0].size / (steps - 1)) * i
-          )
-          if (i === steps - 1) {
-            files[0].status = 'success'
+        setTimeout(
+          () => {
+            dropzone.emit(
+              'uploadprogress',
+              files[0],
+              (100 / (steps - 1)) * i,
+              (files[0].size / (steps - 1)) * i
+            )
+            if (i === steps - 1) {
+              files[0].status = 'success'
 
-            dropzone.emit('success', files[0], 'success')
-            dropzone.emit('complete', files[0])
-            dropzone.processQueue()
+              dropzone.emit('success', files[0], 'success')
+              dropzone.emit('complete', files[0])
+              dropzone.processQueue()
 
-            if (dropzone.getFilesWithStatus('success').length == 4) {
-              dropzone.disable()
+              if (dropzone.getFilesWithStatus('success').length == 4) {
+                dropzone.disable()
+              }
             }
-          }
-        }, (totalMs / steps) * i)
+          },
+          (totalMs / steps) * i
+        )
       )
     }
   }

@@ -1,4 +1,4 @@
-import { trackEvent } from '$lib/plausible'
+import { trackEvent } from '#lib/plausible'
 import type { Action } from './type'
 
 export const events = {
@@ -13,6 +13,8 @@ export const events = {
 
 /// Tracks when the element is clicked with given event name.
 export const trackClick: Action<string> = (node, eventName) => {
+  if (!eventName) return
+
   const listener = () => {
     trackEvent(eventName)
   }
@@ -26,6 +28,8 @@ export const trackClick: Action<string> = (node, eventName) => {
 
 /// Tracks when the element is fully visible with given event name.
 export const trackViewed: Action<string> = (node, eventName) => {
+  if (!eventName) return
+
   const observer = new IntersectionObserver(
     (entries, observer) => {
       if (entries[0].intersectionRatio > 0) {

@@ -99,15 +99,9 @@ produces exactly what gets deployed, in `_site/`:
 pnpm build:site
 ```
 
-CI runs [the same script](scripts/build-site.sh), a step at a time, so what you
-get locally is what ships.
-
-The two halves need different versions of Node, which is why this is a script
-rather than a one-liner: the website only builds on Node 16, and `pnpm` itself
-will not start there. `pnpm build:site` borrows Node 16 through `nvm` for that
-step and tells you what to do if it cannot. All of this goes away with the
-SvelteKit migration described in [`ROADMAP.md`](ROADMAP.md); see
-[`apps/website/README.md`](apps/website/README.md) for the detail.
+CI runs [the same script](scripts/build-site.sh), so what you get locally is
+what ships. It builds each half with its own toolchain and combines them, which
+means there is no manual copying step to remember or get wrong.
 
 ## Community
 

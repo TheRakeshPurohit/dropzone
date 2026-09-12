@@ -3,18 +3,18 @@
   import '../style/fonts.css'
   import '../style/app.css'
 
-  import { page } from '$app/stores'
-  import Footer from '$lib/Footer.svelte'
-  import Header from '$lib/Header/index.svelte'
+  import { page } from '$app/state'
+  import Footer from '#lib/Footer.svelte'
+  import Header from '#lib/Header/index.svelte'
   import '@fontsource/heebo/400.css'
   import '@fontsource/heebo/700.css'
   import { onMount } from 'svelte'
-  import { env } from '$lib/env'
+  import { env } from '#lib/env'
 
   let section: string
   let headerImage: string
   $: {
-    section = $page.url.pathname.split('/')[1]
+    section = page.url.pathname.split('/')[1]
 
     if (['js', 'plus'].includes(section))
       headerImage = `url(/images/backdrops/${section}.jpg)`

@@ -4,17 +4,9 @@ packages:
 
 allowBuilds:
   "@parcel/watcher": true
-  # SvelteKit next.286 pulls an esbuild that compiles a binary on install.
-  esbuild: true
-  "svelte-preprocess": true
   # Docusaurus pulls core-js, which prints a postinstall banner.
   core-js: true
-
-# apps/website still runs the 2022 SvelteKit it was written against, and its
-# npm lockfile pinned the whole tree. Only its direct dependencies survived the
-# move, so the transitive ones that matter are pinned here by hand. All of this
-# goes away with the SvelteKit migration.
-overrides:
-  "@sveltejs/vite-plugin-svelte": "1.0.0-next.37"
-  "@sveltejs/kit>vite": "2.8.4"
-  "@sveltejs/vite-plugin-svelte>vite": "2.8.4"
+  # An unused optional peer of Docusaurus's webpack minimizers, left over in
+  # the lockfile from the old website toolchain. Nothing invokes it, so there
+  # is no reason to compile its binary.
+  esbuild: false

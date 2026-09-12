@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
   import Menu from './Menu.svelte'
   import MobileMenu from './MobileMenu.svelte'
 </script>

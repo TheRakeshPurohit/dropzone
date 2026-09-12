@@ -1,12 +1,12 @@
-<script type="ts">
-  import { page } from '$app/stores'
-  import WhiteLogoSvg from '$lib/WhiteLogoSvg.svelte'
+<script lang="ts">
+  import { page } from '$app/state'
+  import WhiteLogoSvg from '#lib/WhiteLogoSvg.svelte'
 
   import LogoGithub from '~icons/ion/logo-github'
   import LogoMedium from '~icons/ion/logo-medium'
   import LogoTwitter from '~icons/ion/logo-twitter'
 
-  $: section = $page.url.pathname.split('/')[1]
+  $: section = page.url.pathname.split('/')[1]
 
   export let mobile = false
 </script>
@@ -14,7 +14,7 @@
 <nav class:mobile class:desktop={!mobile}>
   <a class="link" href="/"><WhiteLogoSvg /></a>
 
-  <div class="menu__main" />
+  <div class="menu__main"></div>
 
   <div class="menu__actions">
     <a

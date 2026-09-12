@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let subtitle: string = null
+  export let subtitle: string | null = null
 </script>
 
 <h1><slot /></h1>

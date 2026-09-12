@@ -1,7 +1,7 @@
-<script type="ts">
-  import { page } from '$app/stores'
-  import WhiteLogoSvg from '$lib/WhiteLogoSvg.svelte'
-  import { onDestroy, onMount } from 'svelte'
+<script lang="ts">
+  import { afterNavigate } from '$app/navigation'
+  import WhiteLogoSvg from '#lib/WhiteLogoSvg.svelte'
+  import { onMount } from 'svelte'
   import CloseIcon from '~icons/ion/close'
   import MenuIcon from '~icons/ion/menu'
   import Menu from './Menu.svelte'
@@ -17,8 +17,11 @@
     hydrated = true
   })
 
-  let unsubscribe = page.subscribe(() => (isOpen = false))
-  onDestroy(unsubscribe)
+  // Close the menu whenever the route changes. This used to subscribe to the
+  // page store, which SvelteKit 3 no longer exposes.
+  afterNavigate(() => {
+    isOpen = false
+  })
 </script>
 
 <div class:hydrated class="mobile-menu">

@@ -1,5 +1,5 @@
 <script>
-  import Intro from '$lib/Intro.svelte'
+  import Intro from '#lib/Intro.svelte'
 </script>
 
 <Intro title="Dropzone Plus has been discontinued">

@@ -37,21 +37,9 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      # The same script developers run locally, one step at a time, because
-      # the two halves need different versions of Node.
-      - name: Build the documentation
-        run: ./scripts/build-site.sh docs
-
-      # The website only builds on Node 16 until the SvelteKit migration
-      # lands; see ROADMAP.md. The script explains why, and refuses to guess.
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 16
-      - name: Build the website
-        run: ./scripts/build-site.sh website
-
-      - name: Assemble
-        run: ./scripts/build-site.sh assemble
+      # The same script developers run locally.
+      - name: Build and assemble both sites
+        run: ./scripts/build-site.sh
 
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5

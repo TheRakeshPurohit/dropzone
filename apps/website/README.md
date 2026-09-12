@@ -1,38 +1,33 @@
-# Dropzone website
-
-> **This app only builds on Node 16.**
->
-> It still runs SvelteKit `1.0.0-next.286`, which wraps `url` in a proxy. From
-> Node 18 onwards `URL` is implemented with real private fields, so prerendering
-> fails with `Cannot read private member #context`. Node 16 is what this site
-> was built on before it moved into the monorepo, so nothing has regressed --
-> but it does mean `pnpm` itself cannot be used to build it, since pnpm 11
-> requires Node 18 or newer.
->
-> ```bash
-> nvm use 16
-> cd apps/website && BRANCH=main ./node_modules/.bin/svelte-kit build
-> ```
->
-> Its transitive dependencies are pinned in the workspace `overrides`, because
-> only direct dependencies survived the move from npm. All of this goes away
-> with the SvelteKit migration.
-
 # The Dropzone website
 
 Accessible here: https://www.dropzone.dev
 
-This website is built with [svelte](https://svelte.dev) and [svelte kit](https://kit.svelte.dev).
+This website is built with [Svelte](https://svelte.dev) 5 and
+[SvelteKit](https://kit.svelte.dev) 3.
+
+## On the SvelteKit version
+
+SvelteKit 3 has not been released yet. `@sveltejs/kit` and
+`@sveltejs/adapter-static` are pinned to **exact** prerelease versions rather
+than caret ranges, deliberately: `^3.0.0-next.27` would also match every later
+prerelease and 3.0.0 itself, so bumps would happen silently. Moving forward
+should be an edit to `package.json`.
+
+This is not pedantry. The previous version of this site asked for
+`"@sveltejs/kit": "next"`, and by the time anyone looked at it again that tag
+meant something four majors newer, leaving the site stuck on a 2021 prerelease
+that no longer built on any supported version of Node.
+
+Two things here work around gaps in the prerelease and should be deleted when it
+catches up: `src/types/app-env.d.ts`, because `$app/env` ships no declarations,
+and the `paths` entries in `tsconfig.json`, because TypeScript does not resolve
+`#lib` from the package.json `imports` field the way Vite does.
 
 ## Developing
 
-Run this site with
-
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm dev:website          # from the repository root
+pnpm --filter @dropzone/website run dev -- --open
 ```
 
 ## Building

@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
   import ChevronRight from '~icons/ion/chevron-forward'
   import type { Action } from './actions/type'
 

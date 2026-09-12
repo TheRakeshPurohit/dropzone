@@ -1,8 +1,8 @@
-<script type="ts">
-  export let backgroundImage: string = null
-  export let backgroundImageMobile: string = null
-  export let backgroundColor: string = null
-  export let additionalHeight: string = null
+<script lang="ts">
+  export let backgroundImage: string | null = null
+  export let backgroundImageMobile: string | null = null
+  export let backgroundColor: string | null = null
+  export let additionalHeight: string | null = null
 
   backgroundImage = backgroundImage ? `url('${backgroundImage}')` : 'none'
   backgroundImageMobile = backgroundImageMobile
