@@ -75,7 +75,7 @@ describe("Dropzone", function () {
       return expect(dropzone.options.url).toBe("real-action");
     });
 
-    return describe("options", function () {
+    describe("options", function () {
       let element = null;
       let element2 = null;
       beforeEach(function () {
@@ -125,7 +125,7 @@ describe("Dropzone", function () {
         return expect(dropzone.options.acceptedFiles).toBe("my/type");
       });
 
-      return describe("options.clickable", function () {
+      describe("options.clickable", function () {
         let clickableElement = null;
         dropzone = null;
         beforeEach(function () {
@@ -348,7 +348,7 @@ describe("Dropzone", function () {
       }));
     });
 
-    return describe("file specific", function () {
+    describe("file specific", function () {
       let file = null;
       beforeEach(function () {
         file = {
@@ -425,7 +425,7 @@ describe("Dropzone", function () {
           ).toEqual("100%");
         }));
 
-      return describe(".resize()", function () {
+      describe(".resize()", function () {
         describe("with default thumbnail settings", function () {
           it("should properly return target dimensions for 'contain'", function () {
             let info = dropzone.options.resize.call(dropzone, file, 120, 120, "crop");
@@ -446,7 +446,7 @@ describe("Dropzone", function () {
           });
         });
 
-        return describe("with null thumbnail settings", function () {
+        describe("with null thumbnail settings", function () {
           it("should properly return target dimensions for crop", function () {
             let testSettings = [
               [null, null],
@@ -870,7 +870,7 @@ describe("Dropzone", function () {
       });
     });
 
-    return describe("events", () => {
+    describe("events", () => {
       describe("progress updates", () =>
         it("should properly emit a totaluploadprogress event", () =>
           new Promise((done) => {
@@ -1121,7 +1121,7 @@ describe("Dropzone", function () {
           }, 10);
         })));
 
-    return describe("getFilesWithStatus()", () =>
+    describe("getFilesWithStatus()", () =>
       it("should return all files with provided status", function () {
         let mock1 = getMockFile();
         let mock2 = getMockFile();
@@ -1290,7 +1290,7 @@ describe("Dropzone", function () {
         return expect(dropzone.removeFile.mock.calls.length).toEqual(2);
       });
 
-      return describe("thumbnails", function () {
+      describe("thumbnails", function () {
         it("should properly queue the thumbnail creation", () =>
           new Promise((done) => {
             let ct_callback;
@@ -1377,7 +1377,7 @@ describe("Dropzone", function () {
           expect(thumbnail.draggable).toBe(false);
         });
 
-        return describe("when file is SVG", () =>
+        describe("when file is SVG", () =>
           it("should use the SVG image itself", () =>
             new Promise((done) => {
               let createBlob = function (data, type) {
@@ -2224,7 +2224,7 @@ describe("Dropzone", function () {
           }));
       });
 
-      return describe("should properly set status of file", () =>
+      describe("should properly set status of file", () =>
         it("should correctly set `withCredentials` on the xhr object", () =>
           new Promise((done) => {
             dropzone.addFile(mockFile);
@@ -2328,7 +2328,7 @@ describe("Dropzone", function () {
         }));
     });
 
-    return describe("complete file", () =>
+    describe("complete file", () =>
       it("should properly emit the queuecomplete event when the complete queue is finished", () =>
         new Promise((done) => {
           let mock1 = getMockFile("text/html", "mock1");

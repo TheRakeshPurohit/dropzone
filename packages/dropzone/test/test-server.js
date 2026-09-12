@@ -56,6 +56,15 @@ const httpServer = http.createServer((req, res) => {
     .on("data", () => {})
     .on("end", () => {
       const headers = { "Content-Type": "application/json" };
+
+      // Lets the end-to-end tests drive a rejected upload. Everything else
+      // here succeeds, so the failure path had no way of being reached.
+      if (req.url.startsWith("/fail")) {
+        res.writeHead(500, headers);
+        res.end('{"error": "Upload rejected by the server"}');
+        return;
+      }
+
       if (req.url.startsWith("/amazon-multipart-upload")) {
         headers.ETag = `"${Math.round(Math.random() * 10000)}"`;
       }
