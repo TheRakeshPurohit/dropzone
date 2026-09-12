@@ -25,9 +25,6 @@
       <h3>Social</h3>
       <ul>
         <li>
-          <a href="https://twitter.com/dropzonedev">Twitter</a>
-        </li>
-        <li>
           <a href="https://www.matsimon.dev">Blog</a>
         </li>
       </ul>

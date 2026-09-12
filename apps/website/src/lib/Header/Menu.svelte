@@ -3,7 +3,6 @@
 
   import LogoGithub from "~icons/ion/logo-github";
   import GlobeIcon from "~icons/ion/globe-outline";
-  import LogoTwitter from "~icons/ion/logo-twitter";
 
   let { mobile = false }: { mobile?: boolean } = $props();
 </script>
@@ -21,14 +20,6 @@
       rel="nofollow"
     >
       <span class="link__icon"><LogoGithub /></span>
-    </a>
-    <a
-      class="link link--pill link--icon"
-      href="https://twitter.com/dropzonedev"
-      target="_blank"
-      rel="nofollow"
-    >
-      <span class="link__icon"><LogoTwitter /></span>
     </a>
     <a
       class="link link--pill link--icon"
