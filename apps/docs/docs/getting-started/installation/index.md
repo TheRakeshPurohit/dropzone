@@ -1,6 +1,6 @@
 # ⏬ Installation
 
-There are two ways to add Dropzone to your projects. If you are using a package manager please refer to the [npm-or-yarn.md](npm-or-yarn.md "mention")section. If you simply want to use Dropzone without any bundler or package manager, please refer to the [stand-alone.md](stand-alone.md "mention")section.
+There are two ways to add Dropzone to your projects. If you are using a package manager please refer to the [Package manager](package-manager.md) section. If you simply want to use Dropzone without any bundler or package manager, please refer to the [Stand-alone file](stand-alone.md) section.
 
 :::info
 

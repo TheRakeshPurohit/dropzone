@@ -5,7 +5,7 @@ description: This is how I use the library myself
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# npm or yarn
+# Package manager
 
 As with most visual JavaScript libraries there are two sides to the story: getting the JavaScript code in your project, and getting the CSS code. Let's start with JS.
 
@@ -18,9 +18,9 @@ $ npm install --save dropzone
 ```
 </TabItem>
 
-<TabItem value="yarn" label="yarn">
+<TabItem value="pnpm" label="pnpm">
 ```bash
-$ yarn add dropzone
+$ pnpm add dropzone
 ```
 </TabItem>
 </Tabs>
@@ -38,7 +38,7 @@ Without going too much into detail, historically, there have been plenty of ways
 
 Before JavaScript modules there were quite a few other standards. The only other module standard that Dropzone now supports is the [CommonJS format](https://en.wikipedia.org/wiki/CommonJS) which is what node is using too (note that [node also has support for JavaScript modules](https://nodejs.medium.com/announcing-core-node-js-support-for-ecmascript-modules-c5d6dc29b663) now).
 
-We also provide a standalone file that you can simply include in your browser. See the corresponding section for this: [stand-alone.md](stand-alone.md "mention").
+We also provide a standalone file that you can simply include in your browser. See the corresponding section for this: [Stand-alone file](stand-alone.md).
 
 ```javascript
 // If you are using JavaScript/ECMAScript modules:
@@ -69,7 +69,7 @@ Dropzone ships with two files: a `basic.css` and a `dropzone.css`. The `dropzone
 
 Importing this CSS file greatly depends on the bundler or framework that you are using so I won't go into much detail here.
 
-You can also simply include the CSS file in your html. Refer to the [stand-alone.md](stand-alone.md "mention")section for this.
+You can also simply include the CSS file in your html. Refer to the [Stand-alone file](stand-alone.md) section for this.
 
 :::info
 

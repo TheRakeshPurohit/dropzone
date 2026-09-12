@@ -13,7 +13,7 @@ const sidebars = {
           label: "⏬ Installation",
           link: { type: "doc", id: "getting-started/installation/index" },
           items: [
-            "getting-started/installation/npm-or-yarn",
+            "getting-started/installation/package-manager",
             "getting-started/installation/composer",
             "getting-started/installation/stand-alone",
           ],
