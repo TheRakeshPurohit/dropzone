@@ -13,7 +13,7 @@
 Please **do not open a public issue** for security problems.
 
 Report them privately through
-[GitHub's security advisories](https://github.com/dropzone/dropzone/security/advisories/new),
+[GitHub's security advisories](https://github.com/enyo/dropzone/security/advisories/new),
 which lets us discuss and fix the issue before it becomes public. If that does
 not work for you, email <m@tias.me> instead.
 

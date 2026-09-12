@@ -1,6 +1,6 @@
-<img alt="Dropzone.js" src="https://raw.githubusercontent.com/dropzone/dropzone/assets/github-logo.svg" />
+<img alt="Dropzone.js" src="https://raw.githubusercontent.com/enyo/dropzone/assets/github-logo.svg" />
 
-[![CI](https://github.com/dropzone/dropzone/actions/workflows/ci.yml/badge.svg)](https://github.com/dropzone/dropzone/actions/workflows/ci.yml)
+[![CI](https://github.com/enyo/dropzone/actions/workflows/ci.yml/badge.svg)](https://github.com/enyo/dropzone/actions/workflows/ci.yml)
 
 Dropzone is a JavaScript library that turns any HTML element into a dropzone.
 This means that a user can drag and drop a file onto it, and Dropzone will
@@ -60,7 +60,7 @@ Use the standalone files like this:
 ---
 
 - [📚 Full documentation](https://docs.dropzone.dev)
-- [⚙️ `src/options.js`](https://github.com/dropzone/dropzone/blob/main/src/options.js)
+- [⚙️ `src/options.js`](https://github.com/enyo/dropzone/blob/main/src/options.js)
   for all available options
 
 ---
@@ -68,6 +68,40 @@ Use the standalone files like this:
 > ⚠️ **NOTE**: Dropzone 6 does not support Internet Explorer. If you still need
 > it, use `5.9.3`. See the [`CHANGELOG`](./CHANGELOG.md) for everything that
 > changed in 6.0.0.
+
+## Repository layout
+
+This is a monorepo. It holds the library, the documentation and the website:
+
+|                                          |                                            |
+| ---------------------------------------- | ------------------------------------------ |
+| [`packages/dropzone`](packages/dropzone) | the library published to npm as `dropzone` |
+| [`apps/docs`](apps/docs)                 | the documentation, built with Docusaurus   |
+| [`apps/website`](apps/website)           | www.dropzone.dev, built with SvelteKit     |
+
+```bash
+pnpm install
+
+pnpm build          # the library and the docs
+pnpm test           # the library's unit tests
+pnpm test:e2e       # the library's browser tests
+pnpm dev:docs       # the documentation, locally
+pnpm dev:website    # the website, locally
+```
+
+### Building the deployable site
+
+The website and the documentation are published together as one GitHub Pages
+site: the website at the root, the documentation under `/docs`. One command
+produces exactly what gets deployed, in `_site/`:
+
+```bash
+pnpm build:site
+```
+
+CI runs [the same script](scripts/build-site.sh), so what you get locally is
+what ships. It builds each half with its own toolchain and combines them, which
+means there is no manual copying step to remember or get wrong.
 
 ## Community
 
@@ -78,7 +112,7 @@ tracker. Only post an issue here if you think you discovered a bug.
 If you have a feature request or want to discuss something, please use the
 [discussions][] as well.
 
-[discussions]: https://github.com/dropzone/dropzone/discussions
+[discussions]: https://github.com/enyo/dropzone/discussions
 [so]: https://stackoverflow.com/questions/tagged/dropzone.js
 
 > ⚠️ **Please read the [contributing guidelines](CONTRIBUTING.md) before you
@@ -103,4 +137,4 @@ If you have a feature request or want to discuss something, please use the
 
 # MIT License
 
-See the [LICENSE](https://github.com/dropzone/dropzone/blob/main/LICENSE) file
+See the [LICENSE](https://github.com/enyo/dropzone/blob/main/LICENSE) file

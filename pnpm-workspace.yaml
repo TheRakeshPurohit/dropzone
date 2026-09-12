@@ -1,6 +1,12 @@
-# pnpm 11 reads its settings from here rather than from package.json.
-#
-# sass pulls in @parcel/watcher, a native optional dependency used by
-# `pnpm watch-css`. Allowing its build script keeps watch mode fast.
+packages:
+  - "packages/*"
+  - "apps/*"
+
 allowBuilds:
   "@parcel/watcher": true
+  # Docusaurus pulls core-js, which prints a postinstall banner.
+  core-js: true
+  # An unused optional peer of Docusaurus's webpack minimizers, left over in
+  # the lockfile from the old website toolchain. Nothing invokes it, so there
+  # is no reason to compile its binary.
+  esbuild: false

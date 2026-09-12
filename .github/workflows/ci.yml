@@ -7,8 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  test:
-    name: Test
+  library:
+    name: Library
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Dropzone
@@ -25,11 +25,13 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
+      # Playwright lives at the workspace root, so one browser download
+      # serves the library's tests and, once they are wired up, the website's.
       - run: pnpm exec playwright install --with-deps chromium
 
       - run: pnpm format:check
       - run: pnpm lint
-      - run: pnpm build
+      - run: pnpm build:lib
       - run: pnpm test
       - run: pnpm test:e2e
 
@@ -38,5 +40,51 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: playwright-report
-          path: playwright-report
+          path: packages/dropzone/playwright-report
+          retention-days: 7
+
+  docs:
+    name: Docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      # The docs build treats broken links, anchors and markdown links as
+      # errors, so this is also the link check.
+      - run: pnpm build:docs
+
+  website:
+    name: Website
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - name: Build the website
+        run: ./scripts/build-site.sh website
+
+      # Both Playwright projects in apps/website are Chromium, so one browser
+      # covers the desktop and mobile runs.
+      - run: pnpm exec playwright install --with-deps chromium
+      - name: Test the website
+        run: pnpm --filter @dropzone/website run test
+
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: website-playwright-report
+          path: apps/website/playwright-report
           retention-days: 7

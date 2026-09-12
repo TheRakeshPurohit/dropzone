@@ -1,0 +1,73 @@
+<script lang="ts">
+  import Backdrop from "./Backdrop.svelte";
+
+  import type { Snippet } from "svelte";
+
+  let {
+    title,
+    backgroundImage = "default",
+    children,
+    visual,
+  }: {
+    title: string;
+    backgroundImage?: string;
+    children: Snippet;
+    visual?: Snippet;
+  } = $props();
+
+  const desktopImage = $derived(`/images/backdrops/${backgroundImage}.jpg`);
+  const mobileImage = $derived(`/images/backdrops/${backgroundImage}-mobile.jpg`);
+</script>
+
+<section class="wrapper">
+  <Backdrop
+    backgroundImage={desktopImage}
+    backgroundImageMobile={mobileImage}
+    additionalHeight="var(--header-height)"
+  />
+
+  <div class="title-section">
+    <h1>{title}</h1>
+
+    {@render children()}
+  </div>
+  {#if visual}
+    <div class="visual">{@render visual?.()}</div>
+  {/if}
+</section>
+
+<style>
+  .wrapper {
+    position: relative;
+    padding: 4rem var(--calculated-content-padding) 4.5rem;
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-columns: 1fr;
+    grid-gap: 4.5rem;
+  }
+  @media (min-width: 700px) {
+    .wrapper {
+      grid-auto-flow: column;
+      grid-gap: 1.5rem;
+    }
+  }
+
+  .title-section {
+    max-width: 40rem;
+    color: white;
+  }
+  h1 {
+    font-size: linearClamp(tiny, huge, 3rem, 5rem);
+    font-weight: bold;
+    margin-bottom: 3rem;
+    color: var(--intro-title-color);
+    line-height: 90%;
+  }
+
+  .visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 16rem;
+  }
+</style>

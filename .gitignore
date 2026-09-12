@@ -18,3 +18,9 @@ __screenshots__
 # Playwright
 test-results
 playwright-report
+
+# Docusaurus
+.docusaurus
+
+# Assembled deployable site
+_site

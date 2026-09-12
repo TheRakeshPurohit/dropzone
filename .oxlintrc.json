@@ -16,5 +16,11 @@
   "env": {
     "builtin": true,
     "browser": true
-  }
+  },
+  "ignorePatterns": [
+    "apps/docs/build/**",
+    "apps/docs/.docusaurus/**",
+    "apps/website/build/**",
+    "apps/website/.svelte-kit/**"
+  ]
 }

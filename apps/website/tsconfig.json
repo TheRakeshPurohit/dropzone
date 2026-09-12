@@ -1,0 +1,20 @@
+{
+  "extends": "$app/tsconfig",
+  "compilerOptions": {
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "paths": {
+      // TypeScript does not pick these up from the package.json `imports`
+      // field, though Vite resolves them fine.
+      "#lib": ["./src/lib"],
+      "#lib/*": ["./src/lib/*"],
+      // SvelteKit 3 aliases $app to its runtime in Vite but ships no matching
+      // ambient declarations yet, so point TypeScript at the same place.
+      // $app/env has no types there either, hence the local declaration.
+      "$app/env": ["./src/types/app-env.d.ts"],
+      "$app/*": ["./node_modules/@sveltejs/kit/src/runtime/app/*"]
+    }
+  },
+  "include": ["src/**/*", "test/**/*", "*.ts", ".svelte-kit/types/**/*"],
+  "exclude": ["build", "node_modules", ".svelte-kit/output"]
+}

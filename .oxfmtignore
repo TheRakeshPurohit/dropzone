@@ -1,0 +1,7 @@
+# Documentation content converted from GitBook. Reformatting markdown risks
+# changing MDX semantics, and the diff would be pure noise.
+apps/docs/docs/
+apps/docs/build/
+apps/docs/.docusaurus/
+apps/website/build/
+apps/website/.svelte-kit/
