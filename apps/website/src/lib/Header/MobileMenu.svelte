@@ -6,17 +6,10 @@
   import Menu from "./Menu.svelte";
 
   let isOpen = $state(false);
-  // Only true once the client takes over, so the menu is not visible in the
-  // prerendered HTML before it can be interacted with.
-  let hydrated = $state(false);
 
   function toggle() {
     isOpen = !isOpen;
   }
-
-  $effect(() => {
-    hydrated = true;
-  });
 
   // Close the menu whenever the route changes. This used to subscribe to the
   // page store, which SvelteKit 3 no longer exposes.
@@ -25,7 +18,7 @@
   });
 </script>
 
-<div class:hydrated class="mobile-menu">
+<div class="mobile-menu">
   <a href="/"><WhiteLogoSvg /></a>
 
   <button class="toggle" aria-label="Open Menu" onclick={toggle}><MenuIcon /></button>
@@ -79,8 +72,10 @@
     opacity: 0;
     transition: opacity 500ms ease;
   }
-  .hydrated .toggle {
-    opacity: 1;
+  .toggle {
+    :global(body.hydrated) & {
+      opacity: 1;
+    }
   }
   nav {
     display: none;

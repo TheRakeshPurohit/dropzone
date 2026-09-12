@@ -13,9 +13,6 @@
 
   $effect(() => {
     document.body.classList.add("hydrated");
-
-    // The only backdrop still in use, now that /plus is gone.
-    new Image().src = "/images/backdrops/default.jpg";
   });
 </script>
 
