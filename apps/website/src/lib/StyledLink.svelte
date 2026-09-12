@@ -1,30 +1,21 @@
 <script lang="ts">
   import ChevronRight from "~icons/ion/chevron-forward";
   import type { Snippet } from "svelte";
-  import type { Action } from "./actions/type";
-
-  type ActionSet<P = unknown> = [Action<P>, P];
 
   let {
     href,
     variant = "outlined",
     color = "primary",
-    use,
     children,
   }: {
     href: string;
     variant?: "outlined" | "contained" | "text";
     color?: "primary" | "secondary" | "white";
-    use?: ActionSet;
     children: Snippet;
   } = $props();
-
-  const useFunction: Action = $derived(use ? use[0] : () => undefined);
-  const useParam: unknown = $derived(use ? use[1] : undefined);
 </script>
 
 <a
-  use:useFunction={useParam}
   {href}
   target={href.startsWith("http") ? "_blank" : null}
   rel={href.startsWith("http") ? "nofollow" : null}

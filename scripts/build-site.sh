@@ -23,6 +23,11 @@ build_docs() {
 }
 
 build_website() {
+  # The website demos the library from this workspace rather than npm, and
+  # resolves it through dist/, so it has to exist first.
+  say "Building the library"
+  pnpm --filter dropzone run build
+
   say "Building the website"
   pnpm --filter @dropzone/website run build
 }

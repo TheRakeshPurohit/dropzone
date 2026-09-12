@@ -1,28 +1,19 @@
 <script lang="ts">
-  // Once the dropzone library is loaded (in the browser) we set the action
-  // that is going to be used on the dropzone element.
-  let dropzoneAction: (node: HTMLDivElement) => void;
-
-  import loadDropzoneAction from "./actions/dropzone-action";
-  (async function () {
-    dropzoneAction = await loadDropzoneAction();
-  })();
+  import { dropzone } from "./attachments/dropzone";
 </script>
 
 <div class="dropzone-container">
-  {#if dropzoneAction}
-    <div class="dropzone" use:dropzoneAction>
-      <div class="dz-message">
-        <h1>Try it out!</h1>
-        <p>Drag and drop files here</p>
-        <p class="comment">
-          This is just a demo Dropzone.
-          <br />
-          Dropped files are <strong>not</strong> actually uploaded.
-        </p>
-      </div>
+  <div class="dropzone" {@attach dropzone()}>
+    <div class="dz-message">
+      <h1>Try it out!</h1>
+      <p>Drag and drop files here</p>
+      <p class="comment">
+        This is just a demo Dropzone.
+        <br />
+        Dropped files are <strong>not</strong> actually uploaded.
+      </p>
     </div>
-  {/if}
+  </div>
 </div>
 
 <style>
