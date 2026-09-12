@@ -74,3 +74,17 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Build the website
         run: ./scripts/build-site.sh website
+
+      # Both Playwright projects in apps/website are Chromium, so one browser
+      # covers the desktop and mobile runs.
+      - run: pnpm exec playwright install --with-deps chromium
+      - name: Test the website
+        run: pnpm --filter @dropzone/website run test
+
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: website-playwright-report
+          path: apps/website/playwright-report
+          retention-days: 7

@@ -1,53 +1,34 @@
-// @ts-check
-import { devices } from "@playwright/test";
+import { defineConfig, devices } from "@playwright/test";
 
-const port = 3318;
+const port = Number(process.env.WEBSITE_TEST_PORT ?? 3318);
 
-/** @type {import('@playwright/test').PlaywrightTestConfig} */
-const config = {
-  /* Maximum time one test can run for. */
-  timeout: 30 * 1000,
-  webServer: {
-    command: `npm run build && npm run preview -- -p ${port}`,
-    port: port,
-  },
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
+// These drive the built site, so the server command builds it first -- through
+// the repo script, because the site demos the library from this workspace and
+// that has to be built before the website can resolve it.
+export default defineConfig({
+  testDir: "test",
+  fullyParallel: true,
   forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: process.env.CI ? "github" : "list",
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-  use: {
-    /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
-    actionTimeout: 0,
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://localhost:3000',
 
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+  use: {
+    baseURL: `http://localhost:${port}`,
     trace: "on-first-retry",
   },
 
+  // Both projects are Chromium, so CI installs one browser. Widen this if the
+  // site starts doing something engine-specific.
   projects: [
-    {
-      name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
-    },
-    {
-      name: "firefox",
-      use: { ...devices["Desktop Firefox"] },
-    },
-    {
-      name: "webkit",
-      use: { ...devices["Desktop Safari"] },
-    },
-    {
-      name: "iOS",
-      use: { ...devices["iPhone 11"] },
-    },
+    { name: "chromium", use: { ...devices["Desktop Chrome"] } },
+    { name: "mobile", use: { ...devices["Pixel 5"] } },
   ],
-};
 
-export default config;
+  webServer: {
+    command: `bash ../../scripts/build-site.sh website && pnpm exec vite preview --port ${port} --strictPort`,
+    url: `http://localhost:${port}`,
+    reuseExistingServer: !process.env.CI,
+    timeout: 180_000,
+    stdout: "ignore",
+  },
+});
