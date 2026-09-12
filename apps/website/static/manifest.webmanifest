@@ -1,11 +1,11 @@
 {
-  "name": "Dropzone Plus",
+  "name": "Dropzone.js",
   "short_name": "Dropzone",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#0175C2",
   "theme_color": "#0175C2",
-  "description": "A form endpoint service.",
+  "description": "Dropzone.js is an open source library that provides beautiful and easy to use drag'n'drop file uploads with image previews.",
   "orientation": "portrait-primary",
   "prefer_related_applications": false,
   "icons": [
