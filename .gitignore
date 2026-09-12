@@ -19,6 +19,9 @@ __screenshots__
 test-results
 playwright-report
 
+# Vitest coverage
+coverage
+
 # Docusaurus
 .docusaurus
 

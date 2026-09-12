@@ -47,12 +47,14 @@
     "css": "sass src/:dist/ --style compressed",
     "watch-css": "sass src/:dist/ --watch --style compressed",
     "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "prepublishOnly": "pnpm run build"
   },
   "devDependencies": {
     "@vitest/browser-playwright": "^4.1.11",
+    "@vitest/coverage-v8": "^4.1.11",
     "sass": "^1.33.0",
     "vite": "^8.2.2",
     "vitest": "^4.1.11"
