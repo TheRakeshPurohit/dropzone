@@ -28,7 +28,7 @@
           <a href="https://twitter.com/dropzonedev">Twitter</a>
         </li>
         <li>
-          <a href="https://blog.dropzone.dev">Blog</a>
+          <a href="https://www.matsimon.dev">Blog</a>
         </li>
       </ul>
     </div>

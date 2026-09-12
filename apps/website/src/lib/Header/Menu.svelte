@@ -2,7 +2,7 @@
   import WhiteLogoSvg from "#lib/WhiteLogoSvg.svelte";
 
   import LogoGithub from "~icons/ion/logo-github";
-  import LogoMedium from "~icons/ion/logo-medium";
+  import GlobeIcon from "~icons/ion/globe-outline";
   import LogoTwitter from "~icons/ion/logo-twitter";
 
   let { mobile = false }: { mobile?: boolean } = $props();
@@ -32,11 +32,11 @@
     </a>
     <a
       class="link link--pill link--icon"
-      href="https://blog.dropzone.dev"
+      href="https://www.matsimon.dev"
       target="_blank"
       rel="nofollow"
     >
-      <span class="link__icon"><LogoMedium /></span>
+      <span class="link__icon"><GlobeIcon /></span>
     </a>
   </div>
 </nav>
