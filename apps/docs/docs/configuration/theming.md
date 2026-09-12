@@ -1,4 +1,4 @@
-# 💅 Theming
+# Theming
 
 If you want to theme your Dropzone to look fully customized, in most cases you can simply replace the preview HTML template, adapt your CSS, and maybe create a few additional event listeners.
 
