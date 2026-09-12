@@ -15,8 +15,8 @@
     visual?: Snippet;
   } = $props();
 
-  let desktopImage = `/images/backdrops/${backgroundImage}.jpg`;
-  let mobileImage = `/images/backdrops/${backgroundImage}-mobile.jpg`;
+  const desktopImage = $derived(`/images/backdrops/${backgroundImage}.jpg`);
+  const mobileImage = $derived(`/images/backdrops/${backgroundImage}-mobile.jpg`);
 </script>
 
 <section class="wrapper">

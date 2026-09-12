@@ -11,7 +11,7 @@
 
 <section class="wrapper">
   <Backdrop {backgroundColor} />
-  <div class="backdrop" style="background-color: {backgroundColor};" />
+  <div class="backdrop" style="background-color: {backgroundColor};"></div>
   {@render children()}
 </section>
 

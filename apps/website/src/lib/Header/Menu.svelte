@@ -10,8 +10,6 @@
 <nav class:mobile class:desktop={!mobile}>
   <a class="link" href="/"><WhiteLogoSvg /></a>
 
-  <div class="menu__main"></div>
-
   <div class="menu__actions">
     <a
       class="link link--pill link--icon"
@@ -36,7 +34,6 @@
   :global(:root) {
     --menu-color: white;
     --menu-hover-bg-color: rgba(255, 255, 255, 0.1);
-    --menu-border-color: white;
   }
   nav {
     color: var(--menu-color);
@@ -79,12 +76,8 @@
     border-radius: 3rem;
     padding: 0rem 1rem;
   }
-  .link--pill:hover,
-  .link__docs:hover {
+  .link--pill:hover {
     background: var(--menu-hover-bg-color);
-  }
-  .link--pill.link--active {
-    border-color: var(--menu-border-color);
   }
 
   .link--icon {
@@ -93,43 +86,11 @@
   .link--icon:not(:last-child) {
     margin-right: 0.5rem;
   }
-  .link--with-docs {
-    padding-right: 0;
-  }
-  .link__docs {
-    border-top-right-radius: 3rem;
-    border-bottom-right-radius: 3rem;
-    padding-left: 0.25rem;
-    padding-right: 0.75rem;
-    margin-left: 0.5rem;
-    margin-right: calc(0px - var(--border-width));
-    height: calc(100% + var(--border-width) * 2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: calc(0px - var(--border-width));
-    margin-bottom: calc(0px - var(--border-width));
-  }
-
   .link__icon {
     display: block;
     font-size: 1.375em;
     width: var(--icon-size);
     height: var(--icon-size);
-  }
-
-  .menu__main {
-    display: flex;
-  }
-  .menu__main > :not(:last-child) {
-    margin-right: 1.5rem;
-  }
-  nav.mobile .menu__main {
-    flex-direction: column;
-    align-items: center;
-  }
-  nav.mobile .menu__main > * {
-    margin: 1rem 0;
   }
 
   .menu__actions {

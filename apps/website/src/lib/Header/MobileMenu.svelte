@@ -40,7 +40,6 @@
     mobile
     --menu-color="black"
     --menu-hover-bg-color="rgba(0, 0, 0, 0.1)"
-    --menu-border-color="black"
     --button-contained-background="black"
     --button-contained-background-hover="rgba(0, 0, 0, 0.8)"
     --color="black"
