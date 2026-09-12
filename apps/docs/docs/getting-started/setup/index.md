@@ -2,7 +2,7 @@
 description: How to setup a Dropzone on your website.
 ---
 
-# ✅ Setup
+# Setup
 
 After you've [installed Dropzone](../installation/) there are two ways to setup Dropzone. The easiest way is to let Dropzone auto discover your forms, and attach the drag and drop events automatically. For that, you simply need to provide a class to your form. This is called the **declarative** setup.
 

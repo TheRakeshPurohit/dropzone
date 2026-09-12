@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# ⚙ Basics
+# Basics
 
 In this section we'll co over the fundamentals of configuring Dropzones.
 

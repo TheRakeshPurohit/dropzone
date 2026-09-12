@@ -3,7 +3,7 @@ slug: /
 description: The documentation for the JavaScript library Dropzone.
 ---
 
-# 👋 Introduction
+# Introduction
 
 Dropzone is a simple JavaScript library that helps you add file drag and drop functionality to your web forms. It is one of the most popular drag and drop library on the web and is used by millions of people.
 

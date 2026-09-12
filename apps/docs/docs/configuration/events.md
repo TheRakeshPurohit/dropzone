@@ -1,4 +1,4 @@
-# 📞 Events
+# Events
 
 Dropzone triggers events when processing files, to which you can register easily, by calling `.on(eventName, callbackFunction)` on your Dropzone **instance:**
 
